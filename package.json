@@ -15,6 +15,11 @@
     "recoil": "^0.4.1",
     "web-vitals": "^1.1.2"
   },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -37,6 +42,12 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "**/*.{js, json}": [
+      "eslint --fix .",
+      "git add"
     ]
   }
 }
