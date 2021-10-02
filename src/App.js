@@ -1,6 +1,6 @@
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
-import UserMenu from "./components/AppHeader/UserMenu";
+import AppHeader from "./components/AppHeader/AppHeader";
 import MainPage from "./components/MainPage.js/MainPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import NewProjectPage from "./components/NewProjectPage/NewProjectPage";
@@ -8,7 +8,7 @@ import NewProjectPage from "./components/NewProjectPage/NewProjectPage";
 function App() {
   return (
     <Router>
-      <UserMenu />
+      <AppHeader />
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/users/register" component={RegisterPage} />

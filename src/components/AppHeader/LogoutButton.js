@@ -23,6 +23,8 @@ export default function LogoutButton({ handleLoginStatus }) {
   };
 
   return (
-    <button onClick={handleOnClick}>로그아웃</button>
+    <button className="header-button" onClick={handleOnClick}>
+      <img src="images/logout_button.png" alt="로그아웃 버튼" />
+    </button>
   );
 }

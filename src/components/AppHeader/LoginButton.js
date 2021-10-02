@@ -4,6 +4,8 @@ import { useHistory } from "react-router";
 import firebaseAPI from "../../api/firebase";
 import { checkMember } from "../../api/service";
 
+import "./style.scss";
+
 export default function LoginButton({ handleLoginStatus }) {
   const [idToken, setIdToken] = useState(null);
 
@@ -16,7 +18,7 @@ export default function LoginButton({ handleLoginStatus }) {
 
         handleLoginStatus(true);
 
-        history.push("/");
+        history.push("/projects");
 
         return;
       }
@@ -39,5 +41,9 @@ export default function LoginButton({ handleLoginStatus }) {
     }
   };
 
-  return <button onClick={handleLogin}>로그인</button>;
+  return (
+    <button className="header-button" onClick={handleLogin}>
+      <img src="images/login_button.png" alt="로그인 버튼" />
+    </button>
+  );
 }

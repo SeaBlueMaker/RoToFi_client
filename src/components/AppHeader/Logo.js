@@ -1,7 +1,7 @@
 export default function Logo() {
   return (
     <a href="/">
-      <img src="/images/logo.png" alt="로고" />
+      <img className="logo" src="/images/logo_black.png" alt="로고" />
     </a>
   );
 }
