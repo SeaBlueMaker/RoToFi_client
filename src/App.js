@@ -5,6 +5,8 @@ import MainPage from "./components/MainPage.js/MainPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import NewProjectPage from "./components/NewProjectPage/NewProjectPage";
 
+import "./App.scss";
+
 function App() {
   return (
     <Router>

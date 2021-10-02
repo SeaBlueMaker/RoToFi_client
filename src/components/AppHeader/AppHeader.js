@@ -5,9 +5,11 @@ import "./style.scss";
 
 export default function AppHeader() {
   return (
-    <div className="header">
-      <Logo />
-      <UserMenu />
+    <div className="header-background">
+      <div className="header">
+        <Logo />
+        <UserMenu />
+      </div>
     </div>
   );
 }
