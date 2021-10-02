@@ -25,7 +25,7 @@ export default function NewProjectPage() {
   };
 
   const handleSubmitClick = async () => {
-    const resource = { creatorEmail: userId, title, description };
+    const resource = { creatorId: userId, title, description };
 
     if (description.length > 200) {
       alert(EXCESSIVE_DESCRIPTION_LENGTH);
