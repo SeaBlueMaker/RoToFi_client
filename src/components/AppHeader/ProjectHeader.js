@@ -3,11 +3,11 @@ import UserMenu from "./UserMenu";
 
 import "./style.scss";
 
-export default function AppHeader() {
+export default function ProjectHeader() {
   return (
-    <div className="header-background">
+    <div className="project-header-background">
       <div className="header">
-        <Logo />
+        <Logo type={"white"} />
         <UserMenu />
       </div>
     </div>

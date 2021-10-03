@@ -33,9 +33,9 @@ export default function NewProjectPage() {
       return;
     }
 
-    const response = await createProject(resource);
+    const { result } = await createProject(resource);
 
-    if (response === OK) {
+    if (result === OK) {
       history.push("/projects");
     }
   };

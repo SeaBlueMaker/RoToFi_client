@@ -21,9 +21,11 @@ export default function ProjectListPage() {
 
   return (
     <>
-      <a className="new-project-button-wrap" href="/projects/new">
-        <img className="new-project-button" src="/images/new_project_button.png" alt="새 프로젝트 생성 버튼" />
-      </a>
+      <div className="new-project-button-wrap">
+        <a href="/projects/new">
+          <img className="new-project-button" src="/images/new_project_button.png" alt="새 프로젝트 생성 버튼" />
+        </a>
+      </div>
       <div className="project-list">
         {projects && <ProjectList projects={projects} />}
       </div>
