@@ -4,6 +4,7 @@ import AppHeader from "./components/AppHeader/AppHeader";
 import MainPage from "./components/MainPage.js/MainPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import NewProjectPage from "./components/NewProjectPage/NewProjectPage";
+import ProjectListPage from "./components/MainPage.js/ProjectListPage";
 
 import "./App.scss";
 
@@ -14,6 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/users/register" component={RegisterPage} />
+        <Route path="/projects" component={ProjectListPage} />
         <Route path="/projects/new" component={NewProjectPage} />
       </Switch>
     </Router>

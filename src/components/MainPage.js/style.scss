@@ -1,0 +1,55 @@
+.new-project-button-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: 40px auto;
+}
+
+.project-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: 40px auto;
+}
+
+.card {
+  display: inline-block;
+  transform: none;
+  width: 320px;
+  height: 220px;
+  margin: 20px;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
+
+  transition-delay: 0s, 0s;
+  transition-duration: 0.25s, 0.25s;
+  transition-property: box-shadow, transform;
+  transition-timing-function: ease-in, ease-in;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: rgba(0, 0, 0, 0.04) 10px 14px 16px 10px;
+    cursor: pointer;
+  }
+}
+
+.new-project-button {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.delete-button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+
+  img {
+    width: 65px;
+    height: 35px;
+  }
+}

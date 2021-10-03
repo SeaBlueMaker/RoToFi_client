@@ -130,3 +130,56 @@ export const createProject = async (resource) => {
     return error;
   }
 };
+
+export const getProjectList = async (query) => {
+  const requestUrl = `${process.env.REACT_APP_SERVER_URL}/projects`;
+
+  const options = {
+    method: GET,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  };
+
+  try {
+    const response = await fetchData(requestUrl, options);
+
+    if (response.status === 400) {
+      throw createError(response.status, "message");
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deleteProject = async (resource) => {
+  const requestUrl = `${process.env.REACT_APP_SERVER_URL}/projects`;
+
+  const options = {
+    method: DELETE,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(resource),
+  };
+
+  try {
+    const response = await fetchData(requestUrl, options);
+
+    if (response.status === 400) {
+      throw createError(response.status, "message");
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
