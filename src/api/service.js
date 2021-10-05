@@ -131,7 +131,33 @@ export const createProject = async (resource) => {
   }
 };
 
-export const getProjectList = async (query) => {
+export const getProject = async (id) => {
+  const requestUrl = `${process.env.REACT_APP_SERVER_URL}/projects/${id}`;
+
+  const options = {
+    method: GET,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  };
+
+  try {
+    const response = await fetchData(requestUrl, options);
+
+    if (response.status === 400) {
+      throw createError(response.status, "message");
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getProjectList = async () => {
   const requestUrl = `${process.env.REACT_APP_SERVER_URL}/projects`;
 
   const options = {

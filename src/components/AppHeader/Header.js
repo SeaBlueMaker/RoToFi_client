@@ -10,7 +10,7 @@ const Header = withRouter(({ location }) => {
   const { pathname } = location;
 
   useEffect(() => {
-    if (pathname.slice(9, 16) === "/detail") {
+    if (pathname.slice(0, 10) === "/projects/" && pathname.length > 24) {
       setIsProjectPage(true);
     }
   }, [pathname]);

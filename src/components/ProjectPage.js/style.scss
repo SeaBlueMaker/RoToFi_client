@@ -1,0 +1,29 @@
+.nav-background {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #FFFFFF;
+}
+
+.menu {
+  font-size: 20px;
+  font-weight: bold;
+
+  &:link {
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: black;
+  }
+
+  &:hover {
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 -6px rgba(140, 89, 185, 0.3) inset;
+  }
+}
+
+.project-title {
+  font-size: 25px;
+  font-weight: bold;
+}
