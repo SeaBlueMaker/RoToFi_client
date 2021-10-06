@@ -209,3 +209,58 @@ export const deleteProject = async (resource) => {
     return error;
   }
 };
+
+export const createCharacter = async (resource) => {
+  const requestUrl = `${process.env.REACT_APP_SERVER_URL}/characters/new`;
+
+  const options = {
+    method: POST,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(resource),
+  };
+
+  try {
+    const response = await fetchData(requestUrl, options);
+
+    if (response.status === 400) {
+      throw createError(response.status, "message");
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const modifyCharacter = async (resource) => {
+  const requestUrl = `${process.env.REACT_APP_SERVER_URL}/characters`;
+
+  const options = {
+    method: PATCH,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(resource),
+  };
+
+  try {
+    const response = await fetchData(requestUrl, options);
+    const { status } = response;
+
+    if (response.status === 400) {
+      throw createError(status, "message");
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
