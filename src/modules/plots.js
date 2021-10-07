@@ -1,6 +1,7 @@
 const CHANGE_SITUATION = "plots/CHANGE_SITUATION";
 const CHANGE_LOCATION = "plots/CHANGE_LOCATION";
 const INSERT_CONVERSATION = "plots/INSERT_CONVERSATION";
+const INSERT_PLOT = "plots/INSERT_PLOT";
 
 export const changeSituation = (data) => ({
   type: CHANGE_SITUATION,
@@ -17,15 +18,22 @@ export const insertConversation = (data) => ({
   conversation: data,
 });
 
+export const insertPlot = (data) => ({
+  type: INSERT_PLOT,
+  plot: data,
+});
+
 const initialState = {
-  isTimeFlag: true,
-  situation: "",
-  location: {},
-  conversations: [],
+  plots: [],
 };
 
-export const plot = (state = initialState, action) => {
+export const plots = (state = initialState, action) => {
   switch (action.type) {
+    case INSERT_PLOT:
+      return {
+        ...state,
+        plots: state.plots.concat(action.plot),
+      };
     case CHANGE_SITUATION:
       return {
         ...state,

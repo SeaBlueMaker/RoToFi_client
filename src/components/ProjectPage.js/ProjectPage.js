@@ -3,11 +3,13 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 
 import CharactersPage from "./CharactersPage/CharactersPage";
+import PlotPage from "./PlotPage/PlotPage";
 
 import { getProject } from "../../api/service";
 
 import { insertCharacter } from "../../modules/characters";
 import { loadProject } from "../../modules/project";
+import { insertPlot } from "../../modules/plots";
 
 import "./style.scss";
 
@@ -42,6 +44,11 @@ export default function ProjectPage() {
 
       dispatch(loadProject(projectData));
     }
+
+    if (project && project.plots.length > 0) {
+      dispatch(insertPlot(project.plots));
+    }
+
   }, [project]);
 
   const tabs = [
@@ -69,7 +76,7 @@ export default function ProjectPage() {
         </div>
       ),
       tabContent: (
-        <div>플롯탭 내용</div>
+        <PlotPage />
       )
     }
   ];

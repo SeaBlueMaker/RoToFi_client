@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-import { plot } from "./plot";
+import { plots } from "./plots";
 import { characters } from "./characters";
 import { project } from "./project";
 
 const rootReducer = combineReducers({
-  plot,
+  plots,
   characters,
   project,
 });
