@@ -3,6 +3,7 @@ const CHANGE_LOCATION = "plots/CHANGE_LOCATION";
 const INSERT_CONVERSATION = "plots/INSERT_CONVERSATION";
 const INSERT_PLOT = "plots/INSERT_PLOT";
 const CLEAR_PLOTS = "plots/CLEAR_PLOTS";
+const CHANGE_PLOTS = "plots/CHANGE_PLOTS";
 
 export const changeSituation = (data) => ({
   type: CHANGE_SITUATION,
@@ -26,6 +27,11 @@ export const insertPlot = (data) => ({
 
 export const clearPlots = () => ({
   type: CLEAR_PLOTS,
+});
+
+export const changePlots = (data) => ({
+  type: CHANGE_PLOTS,
+  plots: data,
 });
 
 const initialState = {
@@ -59,6 +65,11 @@ export const plots = (state = initialState, action) => {
       return {
         ...state,
         conversations: state.conversations.concat(action.conversation),
+      };
+    case CHANGE_PLOTS:
+      return {
+        ...state,
+        plots: action.plots,
       };
     default:
       return state;

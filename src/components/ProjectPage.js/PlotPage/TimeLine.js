@@ -9,7 +9,10 @@ import {
   updatePlotOrder
 } from "../../../api/service";
 
-import { insertPlot } from "../../../modules/plots";
+import {
+  changePlots,
+  insertPlot,
+} from "../../../modules/plots";
 
 import { OK } from "../../../constants/messages";
 
@@ -17,13 +20,15 @@ export const TimeLine = () => {
   const projectId = useSelector(state => state.project._id);
   const { plots } = useSelector(state => state.plots);
 
-  const [ plotCards, setPlotCards ] = useState([]);
+  const [ plotCards, setPlotCards ] = useState(plots);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setPlotCards(plots);
-  }, [plots]);
+    const changedPlotCards = plotCards;
+
+    dispatch(changePlots(changedPlotCards));
+  }, [plotCards]);
 
   const moveCard = useCallback((dragIndex, hoverIndex) => {
     const dragCard = plotCards[dragIndex];
@@ -36,7 +41,8 @@ export const TimeLine = () => {
     }));
   }, [plotCards]);
 
-  const changePlotOrder = async (changedList) => {
+  const handleSaveOrder = async () => {
+    const changedList = plotCards.map((card) => card._id);
     const resource = { projectId, changedList };
     const response = await updatePlotOrder(resource);
 
@@ -44,12 +50,6 @@ export const TimeLine = () => {
       alert("새로고침이 필요합니다.");
     }
   };
-
-  useEffect(() => {
-    const resorted = plotCards.map((card) => card._id);
-
-    changePlotOrder(resorted);
-  }, [plotCards]);
 
   const renderCard = (card, index) => {
     return (
@@ -98,6 +98,9 @@ export const TimeLine = () => {
           <img src="/images/card_button.png" alt="플롯 카드 추가 버튼" />
         </button>
       </div>
+      <button className="flag-button" onClick={() => handleSaveOrder(true)}>
+        <img src="/images/order_save_button.png" alt="타임라인 순서 저장 버튼" />
+      </button>
       <div>
         <div className="card-container">
           {plotCards.map((card, index) => renderCard(card, index))}
