@@ -7,7 +7,7 @@ import { checkMember } from "../../api/service";
 import "./style.scss";
 
 export default function LoginButton({ handleLoginStatus }) {
-  const [idToken, setIdToken] = useState(null);
+  const [ idToken, setIdToken ] = useState(null);
 
   const history = useHistory();
 

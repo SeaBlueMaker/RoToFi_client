@@ -7,7 +7,7 @@ import ProjectList from "./ProjectList";
 import "./style.scss";
 
 export default function ProjectListPage() {
-  const [projects, setProjects] = useState(null);
+  const [ projects, setProjects ] = useState(null);
 
   useEffect(() => {
     (async () => {

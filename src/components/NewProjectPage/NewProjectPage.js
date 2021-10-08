@@ -9,8 +9,8 @@ import {
 } from "../../constants/messages";
 
 export default function NewProjectPage() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [ title, setTitle ] = useState("");
+  const [ description, setDescription ] = useState("");
 
   const history = useHistory();
 

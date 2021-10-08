@@ -6,7 +6,7 @@ import LogoutButton from "./LogoutButton";
 export default function UserMenu() {
   const hasUserId = !!localStorage.getItem("userId");
 
-  const [isLogin, setLoginStatus] = useState(hasUserId);
+  const [ isLogin, setLoginStatus ] = useState(hasUserId);
 
   const handleClick = (boolean) => setLoginStatus(boolean);
 

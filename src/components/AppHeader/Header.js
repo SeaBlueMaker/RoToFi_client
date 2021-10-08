@@ -5,13 +5,15 @@ import GeneralHeader from "./GeneralHeader";
 import ProjectHeader from "./ProjectHeader";
 
 const Header = withRouter(({ location }) => {
-  const [isProjectPage , setIsProjectPage] = useState(false);
+  const [ isProjectPage , setIsProjectPage ] = useState(false);
 
   const { pathname } = location;
 
   useEffect(() => {
-    if (pathname.slice(0, 10) === "/projects/" && pathname.length > 24) {
+    if (pathname.slice(0, 9) === "/projects" && pathname.length > 24) {
       setIsProjectPage(true);
+    } else {
+      setIsProjectPage(false);
     }
   }, [pathname]);
 
