@@ -3,7 +3,7 @@ import { useDrag, useDrop } from "react-dnd";
 
 import { PLOT_CARD } from "../../../modules/dndTypes";
 
-export const Card = ({ id, text, index, moveCard }) => {
+export const Card = ({ id, text, index, moveCard, isTimeFlag }) => {
   const ref = useRef(null);
 
   const [{ handlerId }, drop] = useDrop({
@@ -57,13 +57,15 @@ export const Card = ({ id, text, index, moveCard }) => {
 
   return (
     <div
-      className="card"
+      className={isTimeFlag ? "time-flag" : "card"}
       ref={ref}
       style={{ opacity }}
       data-handler-id={handlerId}
       onClick={handleCardClick}
     >
-      {text}
+      <div>
+        {text}
+      </div>
     </div>
   );
 };

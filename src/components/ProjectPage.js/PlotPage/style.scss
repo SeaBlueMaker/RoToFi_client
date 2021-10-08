@@ -19,7 +19,7 @@
   box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 
   background-color: #FFFFFF;
-  background-image: url("./line.png");
+  background-image: url("./timelineImages/line.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 10px;
@@ -61,6 +61,22 @@
     border: 1px dashed gray;
     border-radius: 10px;
     cursor: move;
+  }
+
+  .time-flag {
+    width: 300px;
+    height: 6px;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: move;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    background-image: url("./timelineImages/timeflag_pink.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 330px;
   }
 }
 

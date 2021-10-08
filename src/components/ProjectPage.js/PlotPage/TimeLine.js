@@ -59,6 +59,7 @@ export const TimeLine = () => {
         id={card._id}
         text={card.situation}
         moveCard={moveCard}
+        isTimeFlag={card.isTimeFlag}
       />
     );
   };
