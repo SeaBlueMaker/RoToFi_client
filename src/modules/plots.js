@@ -2,6 +2,7 @@ const CHANGE_SITUATION = "plots/CHANGE_SITUATION";
 const CHANGE_LOCATION = "plots/CHANGE_LOCATION";
 const INSERT_CONVERSATION = "plots/INSERT_CONVERSATION";
 const INSERT_PLOT = "plots/INSERT_PLOT";
+const CLEAR_PLOTS = "plots/CLEAR_PLOTS";
 
 export const changeSituation = (data) => ({
   type: CHANGE_SITUATION,
@@ -23,12 +24,20 @@ export const insertPlot = (data) => ({
   plot: data,
 });
 
+export const clearPlots = () => ({
+  type: CLEAR_PLOTS,
+});
+
 const initialState = {
   plots: [],
 };
 
 export const plots = (state = initialState, action) => {
   switch (action.type) {
+    case CLEAR_PLOTS:
+      return {
+        plots: initialState.plots,
+      };
     case INSERT_PLOT:
       return {
         ...state,
