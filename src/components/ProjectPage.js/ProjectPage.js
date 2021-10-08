@@ -20,6 +20,10 @@ export default function ProjectPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  const handleTabClick = (index) => {
+    setActiveIndex(index);
+  };
+
   useEffect(() => {
     (async () => {
       const data = await getProject(id);
@@ -51,49 +55,42 @@ export default function ProjectPage() {
 
   }, [project]);
 
-  const tabs = [
+  const tabContents = [
     {
-      tabTitle: (
-        <div
-          className={activeIndex === 0 ? "is-active menu" : "menu"}
-          onClick={() => handleTabClick(0)}
-          key="tabTitle-0">
-          등장인물
-        </div>
-      ),
-      tabContent: (
-        <CharactersPage />
-      )
+      tabName: "등장인물",
+      tabComponent: <CharactersPage />,
     },
     {
-      tabTitle: (
-        <div
-          className={activeIndex === 1 ? "is-active menu" : "menu"}
-          onClick={() => handleTabClick(1)}
-          key="tabTitle-1"
-        >
-          플롯
-        </div>
-      ),
-      tabContent: (
-        <PlotPage />
-      )
+      tabName: "플롯",
+      tabComponent: <PlotPage />,
     }
   ];
 
-  const handleTabClick = (index) => {
-    setActiveIndex(index);
-  };
+  const tabs = tabContents.map((tab, index) => (
+    {
+      tabTitle: (
+        <div
+          className={activeIndex === index ? "is-active menu" : "menu"}
+          onClick={() => handleTabClick(index)}
+          key={`tabTitle-${index}`}>
+          {tab.tabName}
+        </div>
+      ),
+      tabComponent: (
+        tab.tabComponent
+      )
+    }
+  ));
 
   return (
     <>
       <ul className="nav-background">
-        {tabs.map((section) => {
-          return section.tabTitle;
-        })}
+        {tabs.map((tab) => (
+          tab.tabTitle
+        ))}
       </ul>
       <div>
-        {tabs[activeIndex].tabContent}
+        {tabs[activeIndex].tabComponent}
       </div>
     </>
   );
