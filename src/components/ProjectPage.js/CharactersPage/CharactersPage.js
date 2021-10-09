@@ -28,7 +28,7 @@ export default function CharactersPage() {
       {!isAddible && (
         <Information
           isEditable={isEditable}
-          handleStartEdit={setIsEditable}
+          handleEditable={setIsEditable}
           showingCharacter={showingCharacter}
           handleShowingCharacter={setShowingCharacter}
         />

@@ -3,7 +3,7 @@ import { useDrag, useDrop } from "react-dnd";
 
 import { PLOT_CARD } from "../../../modules/dndTypes";
 
-export const Card = ({ id, text, index, moveCard, isTimeFlag }) => {
+export const Card = ({ data, handleSelectedCard, id, text, index, moveCard, isTimeFlag }) => {
   const ref = useRef(null);
 
   const [{ handlerId }, drop] = useDrop({
@@ -52,7 +52,7 @@ export const Card = ({ id, text, index, moveCard, isTimeFlag }) => {
   drag(drop(ref));
 
   const handleCardClick = () => {
-    // 해당 카드에 대한 정보 가져오기
+    handleSelectedCard(data);
   };
 
   return (

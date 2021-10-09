@@ -7,7 +7,7 @@ import { OK } from "../../../constants/messages";
 
 import { updateCharacter } from "../../../modules/characters";
 
-export default function Information({ isEditable, handleStartEdit, showingCharacter, handleShowingCharacter }) {
+export default function Information({ isEditable, handleEditable, showingCharacter, handleShowingCharacter }) {
   const [ updatedCharacter, setUpdatedCharacter ] = useState({});
   const [ name, setName ] = useState("");
   const [ role, setRole ] = useState("");
@@ -42,7 +42,7 @@ export default function Information({ isEditable, handleStartEdit, showingCharac
   };
 
   const handleEditClick = () => {
-    handleStartEdit(true);
+    handleEditable(true);
   };
 
   const handleCompleteClick = async () => {
@@ -65,7 +65,7 @@ export default function Information({ isEditable, handleStartEdit, showingCharac
   useEffect(() => {
     if (updatedCharacter.hasOwnProperty("_id")) {
       dispatch(updateCharacter(updatedCharacter));
-      handleStartEdit(false);
+      handleEditable(false);
       handleShowingCharacter(updatedCharacter);
     }
   }, [updatedCharacter]);

@@ -16,13 +16,17 @@ import {
 
 import { OK } from "../../../constants/messages";
 
-export const TimeLine = () => {
+export const TimeLine = ({ handleSelectedPlot }) => {
   const projectId = useSelector(state => state.project._id);
   const { plots } = useSelector(state => state.plots);
 
   const [ plotCards, setPlotCards ] = useState(plots);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setPlotCards(plots);
+  }, [plots]);
 
   useEffect(() => {
     const changedPlotCards = plotCards;
@@ -54,12 +58,14 @@ export const TimeLine = () => {
   const renderCard = (card, index) => {
     return (
       <Card
+        data={card}
         key={card._id}
         index={index}
         id={card._id}
         text={card.situation}
         moveCard={moveCard}
         isTimeFlag={card.isTimeFlag}
+        handleSelectedCard={handleSelectedPlot}
       />
     );
   };

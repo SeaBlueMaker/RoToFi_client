@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 
 import CharactersPage from "./CharactersPage/CharactersPage";
-import PlotPage from "./PlotPage/PlotPage";
+import ScenarioPage from "./ScenarioPage/ScenarioPage";
 
 import { getProject } from "../../api/service";
 
@@ -61,8 +61,8 @@ export default function ProjectPage() {
       tabComponent: <CharactersPage />,
     },
     {
-      tabName: "플롯",
-      tabComponent: <PlotPage />,
+      tabName: "시나리오",
+      tabComponent: <ScenarioPage />,
     }
   ];
 

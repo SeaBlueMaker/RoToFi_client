@@ -1,6 +1,6 @@
 const CHANGE_SITUATION = "plots/CHANGE_SITUATION";
 const CHANGE_LOCATION = "plots/CHANGE_LOCATION";
-const INSERT_CONVERSATION = "plots/INSERT_CONVERSATION";
+const INSERT_DIALOGUE = "plots/INSERT_DIALOGUE";
 const INSERT_PLOT = "plots/INSERT_PLOT";
 const CLEAR_PLOTS = "plots/CLEAR_PLOTS";
 const CHANGE_PLOTS = "plots/CHANGE_PLOTS";
@@ -15,9 +15,10 @@ export const changeLocation = (data) => ({
   location: data,
 });
 
-export const insertConversation = (data) => ({
-  type: INSERT_CONVERSATION,
-  conversation: data,
+export const insertDialogue = (data, plotId) => ({
+  type: INSERT_DIALOGUE,
+  dialogue: data,
+  plotId,
 });
 
 export const insertPlot = (data) => ({
@@ -61,10 +62,19 @@ export const plots = (state = initialState, action) => {
         imageURL: action.location.imageURL,
         description: action.location.description,
       };
-    case INSERT_CONVERSATION:
+    case INSERT_DIALOGUE:
       return {
         ...state,
-        conversations: state.conversations.concat(action.conversation),
+        plots: state.plots.map((plot) => {
+          if (plot._id !== action.plotId) {
+            return plot;
+          }
+
+          return {
+            ...plot,
+            dialogues: action.dialogue,
+          };
+        }),
       };
     case CHANGE_PLOTS:
       return {
