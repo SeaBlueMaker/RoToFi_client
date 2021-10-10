@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import DialogueTab from "./DialogueTab";
+import SituationTab from "./SituationTab";
 
 import "./style.scss";
 
@@ -14,7 +15,7 @@ export default function PlotEditor({ plot, handlePlotChange }) {
   const tabContents = [
     {
       tabName: "상황",
-      tabComponent: "아직",
+      tabComponent: <SituationTab plot={plot} handlePlotChange={handlePlotChange} />,
     },
     {
       tabName: "장소",

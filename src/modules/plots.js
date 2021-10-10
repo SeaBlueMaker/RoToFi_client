@@ -5,9 +5,10 @@ const INSERT_PLOT = "plots/INSERT_PLOT";
 const CLEAR_PLOTS = "plots/CLEAR_PLOTS";
 const CHANGE_PLOTS = "plots/CHANGE_PLOTS";
 
-export const changeSituation = (data) => ({
+export const changeSituation = (data, plotId) => ({
   type: CHANGE_SITUATION,
   situation: data,
+  plotId,
 });
 
 export const changeLocation = (data) => ({
@@ -53,7 +54,16 @@ export const plots = (state = initialState, action) => {
     case CHANGE_SITUATION:
       return {
         ...state,
-        situation: action.situation,
+        plots: state.plots.map((plot) => {
+          if (plot._id !== action.plotId) {
+            return plot;
+          }
+
+          return {
+            ...plot,
+            situation: action.situation,
+          };
+        }),
       };
     case CHANGE_LOCATION:
       return {

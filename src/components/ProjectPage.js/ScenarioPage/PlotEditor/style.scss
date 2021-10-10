@@ -6,20 +6,48 @@
   background-color: rgba(165, 42, 42, 0.513);
 }
 
-.dialogue-tab {
+.dialogue-tab,
+.situation-tab {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
 }
 
+.situation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+
+  .notification {
+    padding-left: 30px;
+    color: gray;
+  }
+
+  .edit-button {
+    display: flex;
+    padding: 0;
+  }
+}
+
+.textarea-situation {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 15px;
+
+  outline: none;
+  resize: none;
+  overflow: scroll;
+}
+
 .main-content {
   width: 100%;
   height: 100%;
   padding: 30px;
-  margin-bottom: 20px;
   box-sizing: border-box;
   background-color: cadetblue;
   overflow: scroll;
@@ -35,6 +63,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-top: 20px;
   background-color: burlywood;
 }
 
