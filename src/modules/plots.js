@@ -11,9 +11,10 @@ export const changeSituation = (data, plotId) => ({
   plotId,
 });
 
-export const changeLocation = (data) => ({
+export const changeLocation = (data, plotId) => ({
   type: CHANGE_LOCATION,
   location: data,
+  plotId,
 });
 
 export const insertDialogue = (data, plotId) => ({
@@ -68,9 +69,20 @@ export const plots = (state = initialState, action) => {
     case CHANGE_LOCATION:
       return {
         ...state,
-        title: action.location.title,
-        imageURL: action.location.imageURL,
-        description: action.location.description,
+        plots: state.plots.map((plot) => {
+          if (plot._id !== action.plotId) {
+            return plot;
+          }
+
+          return {
+            ...plot,
+            location: {
+              title: action.location.title || plot.location.title,
+              imageURL: action.location.imageURL || plot.location.imageURL,
+              description: action.location.description || plot.location.description,
+            },
+          };
+        }),
       };
     case INSERT_DIALOGUE:
       return {

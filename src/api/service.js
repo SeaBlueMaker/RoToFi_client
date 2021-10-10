@@ -374,3 +374,31 @@ export const updateSituation = async (resource) => {
     return error;
   }
 };
+
+export const updateLocation = async (resource) => {
+  const requestUrl = `${process.env.REACT_APP_SERVER_URL}/plots/location`;
+
+  const options = {
+    method: PATCH,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(resource),
+  };
+
+  try {
+    const response = await fetchData(requestUrl, options);
+    const { status } = response;
+
+    if (response.status === 400) {
+      throw createError(status, "message");
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
