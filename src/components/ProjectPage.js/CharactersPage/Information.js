@@ -7,6 +7,8 @@ import { OK } from "../../../constants/messages";
 
 import { updateCharacter } from "../../../modules/characters";
 
+import addPhoto from "../../../utils/addPhoto";
+
 export default function Information({ isEditable, handleEditable, showingCharacter, handleShowingCharacter }) {
   const [ updatedCharacter, setUpdatedCharacter ] = useState({});
   const [ name, setName ] = useState("");
@@ -79,7 +81,8 @@ export default function Information({ isEditable, handleEditable, showingCharact
         age,
         appearance,
         personality,
-        etc
+        etc,
+        imageURL,
       } = showingCharacter;
 
       setName(name);
@@ -89,22 +92,37 @@ export default function Information({ isEditable, handleEditable, showingCharact
       setAppearance(appearance);
       setPersonality(personality);
       setEtc(etc);
+      setImageURL(imageURL);
     }
   }, [showingCharacter]);
+
+  const changeImage = async () => {
+    const data = await addPhoto();
+
+    if (!data) {
+      alert("이미지를 첨부하지 못했습니다. 다시 시도해 주십시오.");
+
+      return;
+    }
+
+    if (typeof data !== "string") {
+      setImageURL(data.Location);
+    }
+  };
 
   return (
     <div className="character-info">
       <div className="first inputs">
         {isEditable && (
           <input
-            className="input-name"
+            className="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
             autoFocus
           />
         )}
         {!isEditable && (
-          <div className="input-name">
+          <div className="name">
             {showingCharacter?.name}
           </div>
         )}
@@ -120,7 +138,36 @@ export default function Information({ isEditable, handleEditable, showingCharact
         )}
       </div>
       <div className="second">
-        <div className="character-image" />
+        <div className="character-image">
+          {imageURL && (
+            <img
+              src={imageURL}
+              alt="프로필 이미지"
+              width="180"
+              height="180"
+            />
+          )}
+          {isEditable && (
+            <div className="image-uploader">
+              <label htmlFor="uploader">
+                <img
+                  className="image-uploader__image"
+                  src="/images/image_uploader_icon.png"
+                  alt="이미지 첨부 아이콘"
+                  width="45px"
+                  height="40px"
+                />
+              </label>
+              <input
+                className="image-uploader__input"
+                type="file"
+                id="uploader"
+                accept=".png, .jpg, .jpeg"
+                onChange={changeImage}
+              />
+            </div>
+          )}
+        </div>
         <div className="second-input inputs">
           <div>
             역할

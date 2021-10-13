@@ -7,6 +7,8 @@ import { OK } from "../../../constants/messages";
 
 import { insertCharacter } from "../../../modules/characters";
 
+import addPhoto from "../../../utils/addPhoto";
+
 export default function NewCharacter({ handleFinishAdd }) {
   const [ savedCharacter, setSavedCharacter ] = useState({});
   const [ name, setName ] = useState("");
@@ -60,6 +62,20 @@ export default function NewCharacter({ handleFinishAdd }) {
     handleFinishAdd(false);
   };
 
+  const changeImage = async () => {
+    const data = await addPhoto();
+
+    if (!data) {
+      alert("이미지를 첨부하지 못했습니다. 다시 시도해 주십시오.");
+
+      return;
+    }
+
+    if (typeof data !== "string") {
+      setImageURL(data.Location);
+    }
+  };
+
   useEffect(() => {
     if (savedCharacter.hasOwnProperty("_id")) {
       dispatch(insertCharacter(savedCharacter));
@@ -81,7 +97,34 @@ export default function NewCharacter({ handleFinishAdd }) {
         </button>
       </div>
       <div className="second">
-        <div className="character-image" />
+        <div className="character-image">
+          {imageURL && (
+            <img
+              src={imageURL}
+              alt="프로필 이미지"
+              width="180"
+              height="180"
+            />
+          )}
+          <div className="image-uploader">
+            <label htmlFor="uploader">
+              <img
+                className="image-uploader__image"
+                src="/images/image_uploader_icon.png"
+                alt="이미지 첨부 아이콘"
+                width="45px"
+                height="40px"
+              />
+            </label>
+            <input
+              className="image-uploader__input"
+              type="file"
+              id="uploader"
+              accept=".png, .jpg, .jpeg"
+              onChange={changeImage}
+            />
+          </div>
+        </div>
         <div className="second-input inputs">
           <div>
             역할

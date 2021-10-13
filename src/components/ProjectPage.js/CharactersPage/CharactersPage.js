@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import CharacterList from "./CharacterList";
@@ -10,15 +10,21 @@ export default function CharactersPage() {
 
   const [ isAddible, setIsAddible ] = useState(false);
   const [ isEditable, setIsEditable ] = useState(false);
-  const [ showingCharacter, setShowingCharacter ] = useState(characters.characters[0]);
+  const [ showingCharacter, setShowingCharacter ] = useState(null);
 
   const handleOnClick = () => {
     setIsAddible(true);
   };
 
+  useEffect(() => {
+    const latestCharacter = characters.characters[characters.characters.length - 1];
+
+    setShowingCharacter(latestCharacter);
+  }, [characters.characters]);
+
   return (
     <div className="character-page">
-      <div className="character-list">
+      <div className="character-page__list-wrap">
         {characters && <CharacterList characterList={characters} handleOnClick={setShowingCharacter} />}
         <button className="character-button" onClick={handleOnClick}>
           <img src="/images/character_insert_button.png" alt="인물 추가 버튼" />

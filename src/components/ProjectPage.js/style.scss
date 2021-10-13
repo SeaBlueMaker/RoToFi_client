@@ -43,7 +43,7 @@
   width: 100%;
 }
 
-.character-list {
+.character-page__list-wrap {
   display: flex;
   flex-direction: column;
   flex-basis: 150px;
@@ -52,12 +52,20 @@
   background-color: #FFFFFF;
 }
 
-.character-names {
-  width: 100%;
+.character-page__list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   height: 70vh;
   margin-bottom: 20px;
-  background-color: #dddddd;
   overflow: scroll;
+
+  .name {
+    margin: 3px;
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
 
 .character-info {
@@ -76,6 +84,11 @@
 }
 
 .inputs {
+  .name {
+    width: 500px;
+    font-size: 30px;
+  }
+
   div {
     font-size: 20px;
     font-weight: bold;
@@ -93,11 +106,6 @@
 .first {
   display: flex;
   justify-content: space-between;
-}
-
-.input-name {
-  width: 500px;
-  font-size: 30px;
 }
 
 .second {
@@ -125,9 +133,18 @@
 }
 
 .character-image {
+  position: relative;
   width: 300px;
   height: 400px;
   background-color: #dddddd;
+  border-radius: 5px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 }
 
 .third {
@@ -176,5 +193,22 @@
   img {
     width: 30px;
     height: 30px;
+  }
+}
+
+.image-uploader {
+  width: 45px;
+  height: 40px;
+
+  position: absolute;
+  right: 0.5em;
+  bottom: -0.5em;
+
+  &__image {
+    cursor: pointer;
+  }
+
+  &__input {
+    display: none;
   }
 }
