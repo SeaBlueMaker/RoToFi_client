@@ -60,7 +60,7 @@ export default function SituationTab({ plot, handlePlotChange }) {
           />
         )}
         {!isEditable && (
-          <div className="title">
+          <div className="location__title">
             {changedTitle}
           </div>
         )}

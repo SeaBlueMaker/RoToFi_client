@@ -32,7 +32,7 @@ export default function PlotEditor({ plot, handlePlotChange }) {
     {
       tabTitle: (
         <div
-          className={activeIndex === index ? "is-active menu" : "menu"}
+          className={activeIndex === index ? "is-active editor__nav__menu" : "editor__nav__menu"}
           onClick={() => handleTabClick(index)}
           key={`tabTitle-${index}`}>
           {tab.tabName}
@@ -46,12 +46,12 @@ export default function PlotEditor({ plot, handlePlotChange }) {
 
   return (
     <>
-      <ul className="nav-background">
+      <ul className="editor__nav">
         {tabs.map((tab) => (
           tab.tabTitle
         ))}
       </ul>
-      <div className="editor-component">
+      <div className="editor__component">
         {tabs[activeIndex].tabComponent}
       </div>
     </>

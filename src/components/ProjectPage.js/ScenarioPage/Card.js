@@ -57,13 +57,13 @@ export const Card = ({ data, handleSelectedCard, id, text, index, moveCard, isTi
 
   return (
     <div
-      className={isTimeFlag ? "time-flag" : "card"}
+      className={isTimeFlag ? "chapter-card card--hover" : "plot-card card--hover"}
       ref={ref}
       style={{ opacity }}
       data-handler-id={handlerId}
       onClick={handleCardClick}
     >
-      <div>
+      <div className={isTimeFlag ? "chapter-card__text" : "plot-card__text"}>
         {text}
       </div>
     </div>

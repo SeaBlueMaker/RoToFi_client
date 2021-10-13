@@ -1,10 +1,11 @@
-.general-header-background {
+.header__background-general {
   padding-top: 45px;
   padding-bottom: 20px;
   background-color: #FFFFFF;
 }
 
-.project-header-background {
+.header__background-project {
+  height: 4%;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -14,23 +15,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  width: 73%;
-  margin: 0 auto;
 }
 
 .logo {
   width: 240px;
-  height: 40px;
   cursor: pointer;
 }
 
 .header-button {
-  border: none;
-  outline: none;
-  background: none;
-  cursor: pointer;
-
   img {
     width: 100px;
     height: 35px;

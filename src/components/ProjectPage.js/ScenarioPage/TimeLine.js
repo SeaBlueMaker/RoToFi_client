@@ -94,8 +94,8 @@ export const TimeLine = ({ handleSelectedPlot }) => {
   };
 
   return (
-    <div className="timeline">
-      <div className="header">
+    <>
+      <div className="timeline__header">
         <button className="flag-button" onClick={() => handleCreatePlot(true)}>
           <img src="/images/flag_button.png" alt="플래그 추가 버튼" />
         </button>
@@ -112,6 +112,6 @@ export const TimeLine = ({ handleSelectedPlot }) => {
           {plotCards.map((card, index) => renderCard(card, index))}
         </div>
       </div>
-    </div>
+    </>
   );
 };

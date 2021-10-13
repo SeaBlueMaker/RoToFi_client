@@ -3,53 +3,62 @@
   justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
-  width: 75%;
+  flex-basis: 100%;
   margin: 40px auto 10px auto;
 }
 
-.project-list {
+.list-box {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 75%;
-  margin: 0 auto;
+  flex-basis: 100%;
+  gap: 2em;
 }
 
-.card {
+.list__element {
   display: inline-block;
+  min-height: 190px;
+  flex-basis: 300px;
+  flex-grow: 1;
   transform: none;
-  width: 320px;
-  height: 220px;
-  margin: 20px;
+  height: 190px;
+  padding: 30px;
   background-color: #FFFFFF;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
+  color: black;
 
-  transition-delay: 0s, 0s;
-  transition-duration: 0.25s, 0.25s;
-  transition-property: box-shadow, transform;
-  transition-timing-function: ease-in, ease-in;
-
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: rgba(0, 0, 0, 0.04) 10px 14px 16px 10px;
-    cursor: pointer;
+  .title {
+    font-size: 25px;
+    font-weight: bold;
   }
+
+  .description {
+    height: 70%;
+    margin: 15px 0;
+    font-size: 15px;
+    overflow: scroll;
+  }
+}
+
+.box--flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .new-project-button {
   width: 100px;
-  margin-right: 20px;
+}
+
+.button--flex {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .delete-button {
-  border: none;
-  outline: none;
-  background: none;
-  cursor: pointer;
-
   img {
-    width: 65px;
-    height: 35px;
+    width: 50px;
+    height: 30px;
   }
 }

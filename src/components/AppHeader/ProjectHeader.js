@@ -5,8 +5,8 @@ import "./style.scss";
 
 export default function ProjectHeader() {
   return (
-    <div className="project-header-background">
-      <div className="header">
+    <div className="header__background-project page">
+      <div className="header page--width-80">
         <Logo type={"white"} />
         <UserMenu />
       </div>

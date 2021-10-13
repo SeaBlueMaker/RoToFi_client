@@ -70,28 +70,30 @@ export default function ProjectPage() {
     {
       tabTitle: (
         <div
-          className={activeIndex === index ? "is-active menu" : "menu"}
+          className={activeIndex === index ? "is-active nav__category" : "nav__category"}
           onClick={() => handleTabClick(index)}
           key={`tabTitle-${index}`}>
           {tab.tabName}
         </div>
       ),
       tabComponent: (
-        tab.tabComponent
+        <div className="page page--width-80">
+          {tab.tabComponent}
+        </div>
       )
     }
   ));
 
   return (
-    <>
-      <ul className="nav-background">
-        {tabs.map((tab) => (
-          tab.tabTitle
-        ))}
-      </ul>
-      <div>
+    <div className="tab">
+      <div className="nav__background-wrap">
+        <ul className="nav__background">
+          {tabs.map((tab) => tab.tabTitle)}
+        </ul>
+      </div>
+      <div className="nav__content-wrap">
         {tabs[activeIndex].tabComponent}
       </div>
-    </>
+    </div>
   );
 }

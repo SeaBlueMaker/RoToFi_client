@@ -20,15 +20,15 @@ export default function ProjectListPage() {
   }, []);
 
   return (
-    <>
+    <div className="page page--width-70">
       <div className="new-project-button-wrap">
         <a href="/projects/new">
           <img className="new-project-button" src="/images/new_project_button.png" alt="새 프로젝트 생성 버튼" />
         </a>
       </div>
-      <div className="project-list">
+      <div className="list-box">
         {projects && <ProjectList projects={projects} />}
       </div>
-    </>
+    </div>
   );
 }

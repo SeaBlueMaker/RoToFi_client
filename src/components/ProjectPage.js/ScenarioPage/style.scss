@@ -1,20 +1,18 @@
 .scenario-page {
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
-  width: 75%;
-  height: 700px;
-  margin: 40px auto;
+  gap: 1em;
+  width: 100%;
 }
 
 .timeline {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  height: 100%;
-  width: 400px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 500px;
+  height: 70vh;
   padding: 30px;
   box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 
@@ -23,15 +21,10 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 10px;
-  background-position-y: 70px;
+  background-position-x: 140px;
+  background-position-y: 100px;
 
   overflow: scroll;
-
-  .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
   .title {
     margin-bottom: 15px;
@@ -48,36 +41,60 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
+    width: 100%;
     height: 90%;
   }
 
-  .card {
-    width: 300px;
-    height: 80px;
+  .plot-card {
+    height: 140px;
     padding: 15px;
-    margin: 10px;
-    background-color: #fff3f3;
-    border: 1px dashed gray;
+    margin: 10px 10px 10px 130px;
     border-radius: 10px;
     cursor: move;
-  }
 
-  .time-flag {
-    width: 300px;
-    height: 6px;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 10px;
-    cursor: move;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    background-image: url("./timelineImages/timeflag_pink.png");
+    background-image: url("./timelineImages/plot_card.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 330px;
+    background-size: 350px;
   }
+
+  .chapter-card {
+    width: 200px;
+    height: 40px;
+    margin: 10px 270px 10px 10px;
+    border-radius: 10px;
+    cursor: move;
+
+    background-image: url("./timelineImages/chapter_card.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200px;
+  }
+}
+
+.chapter-card__text {
+  width: 160px;
+  height: 10px;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plot-card__text {
+  width: 290px;
+  margin: 10px 10px 10px 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  white-space: normal;
+  line-height: 1.2;
+  height: 6.0em;
+}
+
+.timeline__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flag-button {
@@ -116,9 +133,10 @@
 .editor {
   display: flex;
   flex-direction: column;
-  flex-basis: 800px;
-  height: 100%;
-  padding: 30px;
+  flex-basis: 500px;
+  flex-grow: 1;
+  height: 70vh;
+  padding: 20px 40px 40px 40px;
   background-color: #FFFFFF;
   overflow: scroll;
   box-shadow: 1px 1px 6px rgba(0,0,0,0.5);

@@ -26,10 +26,10 @@ export default function Project({ project }) {
   };
 
   return (
-    <div className="card">
-      <div>{title}</div>
-      <div>{description}</div>
-      <button className="delete-button" onClick={handleOnClick}>
+    <div className="box--flex">
+      <div className="title link--no-effect">{title}</div>
+      <div className="description link--no-effect">{description}</div>
+      <button className="delete-button button--flex" onClick={handleOnClick}>
         <img src="/images/delete_button.png" alt="삭제 버튼" />
       </button>
     </div>

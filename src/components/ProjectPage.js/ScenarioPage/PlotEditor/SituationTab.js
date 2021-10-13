@@ -45,7 +45,7 @@ export default function SituationTab({ plot, handlePlotChange }) {
   return (
     <div className="situation-tab">
       <div className="situation-header">
-        <div className="notification">좌측 타임라인에서는 최대 네 줄까지 노출됩니다.</div>
+        <div className="notification">이곳에서 작성한 글이 좌측 타임라인에 노출됩니다.</div>
         {!isEditable && (
           <button className="edit-button" onClick={handleEditClick}>
             <img src="/images/edit_button.png" alt="수정하기 버튼" />

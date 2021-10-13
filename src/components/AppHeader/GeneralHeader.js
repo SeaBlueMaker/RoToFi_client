@@ -5,8 +5,8 @@ import "./style.scss";
 
 export default function GeneralHeader() {
   return (
-    <div className="general-header-background">
-      <div className="header">
+    <div className="header__background-general page">
+      <div className="header page--width-70">
         <Logo type={"black"} />
         <UserMenu />
       </div>
