@@ -106,7 +106,7 @@ export default function NewCharacter({ handleFinishAdd }) {
               height="180"
             />
           )}
-          <div className="image-uploader">
+          <div className="image-uploader image-uploader-character">
             <label htmlFor="uploader">
               <img
                 className="image-uploader__image"

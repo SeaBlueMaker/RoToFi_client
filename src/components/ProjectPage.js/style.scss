@@ -200,9 +200,17 @@
   width: 45px;
   height: 40px;
 
-  position: absolute;
-  right: 0.5em;
-  bottom: -0.5em;
+  &-character {
+    position: absolute;
+    right: 0.5em;
+    bottom: -0.5em;
+  }
+
+  &-location {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+  }
 
   &__image {
     cursor: pointer;

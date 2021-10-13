@@ -7,6 +7,8 @@ import { changeLocation } from "../../../../modules/plots";
 
 import { OK } from "../../../../constants/messages";
 
+import addPhoto from "../../../../utils/addPhoto";
+
 export default function SituationTab({ plot, handlePlotChange }) {
   const { location } = plot;
   const { title, imageURL, description } = location;
@@ -43,6 +45,20 @@ export default function SituationTab({ plot, handlePlotChange }) {
     setIsEditable(false);
   };
 
+  const changeImage = async () => {
+    const data = await addPhoto();
+
+    if (!data) {
+      alert("이미지를 첨부하지 못했습니다. 다시 시도해 주십시오.");
+
+      return;
+    }
+
+    if (typeof data !== "string") {
+      setChangedImage(data.Location);
+    }
+  };
+
   useEffect(() => {
     setChangedTitle(title);
     setChangedDescription(description);
@@ -73,6 +89,36 @@ export default function SituationTab({ plot, handlePlotChange }) {
           <button className="character-button" onClick={handleCompleteClick}>
             <img src="/images/complete_button.png" alt="완료 버튼" />
           </button>
+        )}
+      </div>
+      <div className="location-image">
+        {changedImage && (
+          <img
+            src={changedImage}
+            alt="프로필 이미지"
+            width="180"
+            height="180"
+          />
+        )}
+        {isEditable && (
+          <div className="image-uploader image-uploader-location">
+            <label htmlFor="uploader">
+              <img
+                className="image-uploader__image"
+                src="/images/image_uploader_icon.png"
+                alt="이미지 첨부 아이콘"
+                width="45px"
+                height="40px"
+              />
+            </label>
+            <input
+              className="image-uploader__input"
+              type="file"
+              id="uploader"
+              accept=".png, .jpg, .jpeg"
+              onChange={changeImage}
+            />
+          </div>
         )}
       </div>
       <div className="main-content">
