@@ -42,7 +42,7 @@ export default function LoginButton({ handleLoginStatus }) {
   };
 
   return (
-    <button className="header-button" onClick={handleLogin}>
+    <button className="header-button pop" onClick={handleLogin}>
       <img src="/images/login_button.png" alt="로그인 버튼" />
     </button>
   );

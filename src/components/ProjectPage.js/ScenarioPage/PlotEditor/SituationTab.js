@@ -47,12 +47,12 @@ export default function SituationTab({ plot, handlePlotChange }) {
       <div className="situation-header">
         <div className="notification">이곳에서 작성한 글이 좌측 타임라인의 카드에 노출됩니다.</div>
         {!isEditable && (
-          <button className="edit-button" onClick={handleEditClick}>
+          <button className="edit-button lotate" onClick={handleEditClick}>
             <img src="/images/edit_button.png" alt="수정하기 버튼" />
           </button>
         )}
         {isEditable && (
-          <button className="character-button" onClick={handleCompleteClick}>
+          <button className="character-button pop" onClick={handleCompleteClick}>
             <img src="/images/complete_button.png" alt="완료 버튼" />
           </button>
         )}

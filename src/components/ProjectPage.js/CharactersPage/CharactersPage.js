@@ -26,7 +26,7 @@ export default function CharactersPage() {
     <div className="character-page">
       <div className="character-page__list-wrap">
         {characters && <CharacterList characterList={characters} handleOnClick={setShowingCharacter} />}
-        <button className="character-button" onClick={handleOnClick}>
+        <button className="character-button pop" onClick={handleOnClick}>
           <img src="/images/character_insert_button.png" alt="인물 추가 버튼" />
         </button>
       </div>

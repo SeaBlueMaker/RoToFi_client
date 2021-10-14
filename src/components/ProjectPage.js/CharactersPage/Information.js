@@ -127,12 +127,12 @@ export default function Information({ isEditable, handleEditable, showingCharact
           </div>
         )}
         {!isEditable && (
-          <button className="edit-button" onClick={handleEditClick}>
+          <button className="edit-button lotate" onClick={handleEditClick}>
             <img src="/images/edit_button.png" alt="수정하기 버튼" />
           </button>
         )}
         {isEditable && (
-          <button className="character-button" onClick={handleCompleteClick}>
+          <button className="character-button pop" onClick={handleCompleteClick}>
             <img src="/images/complete_button.png" alt="완료 버튼" />
           </button>
         )}

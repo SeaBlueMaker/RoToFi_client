@@ -92,7 +92,7 @@ export default function NewCharacter({ handleFinishAdd }) {
           onChange={(event) => setName(event.target.value)}
           autoFocus
         />
-        <button className="character-button" onClick={handleCompleteClick}>
+        <button className="character-button pop" onClick={handleCompleteClick}>
           <img src="/images/complete_button.png" alt="완료 버튼" />
         </button>
       </div>

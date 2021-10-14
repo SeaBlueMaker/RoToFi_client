@@ -41,6 +41,7 @@
   flex-direction: row;
   gap: 1em;
   width: 100%;
+  animation: transparentAppear 0.5s;
 }
 
 .character-page__list-wrap {
@@ -185,11 +186,6 @@
 }
 
 .edit-button {
-  border: none;
-  outline: none;
-  background: none;
-  cursor: pointer;
-
   img {
     width: 30px;
     height: 30px;

@@ -54,7 +54,7 @@ export default function InputBar({ characters, plot, handlePlotChange }) {
         value={inputText}
         onChange={handleInputChange}
       />
-      <button className="complete-button" onClick={handleCreateDialogue}>
+      <button className="complete-button pop" onClick={handleCreateDialogue}>
         <img src="/images/complete_button.png" alt="완료 버튼" />
       </button>
     </div>

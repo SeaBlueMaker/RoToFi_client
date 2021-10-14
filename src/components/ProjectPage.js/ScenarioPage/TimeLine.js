@@ -96,16 +96,28 @@ export const TimeLine = ({ handleSelectedPlot }) => {
   return (
     <>
       <div className="timeline__header">
-        <button className="flag-button" onClick={() => handleCreatePlot(true)}>
-          <img src="/images/flag_button.png" alt="플래그 추가 버튼" />
+        <button onClick={() => handleCreatePlot(true)}>
+          <img
+            className="card-button__plot"
+            src="/images/flag_button.png"
+            alt="플래그 추가 버튼"
+          />
         </button>
         <div className="title">Time Line</div>
-        <button className="card-button" onClick={() => handleCreatePlot(false)}>
-          <img src="/images/card_button.png" alt="플롯 카드 추가 버튼" />
+        <button onClick={() => handleCreatePlot(false)}>
+          <img
+            className="card-button__chapter"
+            src="/images/card_button.png"
+            alt="플롯 카드 추가 버튼"
+          />
         </button>
       </div>
-      <button className="flag-button" onClick={() => handleSaveOrder(true)}>
-        <img src="/images/order_save_button.png" alt="타임라인 순서 저장 버튼" />
+      <button onClick={() => handleSaveOrder(true)}>
+        <img
+          className="card-button__order pop"
+          src="/images/order_save_button.png"
+          alt="타임라인 순서 저장 버튼"
+        />
       </button>
       <div>
         <div className="card-container">
