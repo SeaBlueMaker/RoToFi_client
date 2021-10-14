@@ -292,6 +292,33 @@ export const createPlot = async (resource) => {
   }
 };
 
+export const deletePlot = async (resource) => {
+  const requestUrl = `${process.env.REACT_APP_SERVER_URL}/plots`;
+
+  const options = {
+    method: DELETE,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(resource),
+  };
+
+  try {
+    const response = await fetchData(requestUrl, options);
+
+    if (response.status === 400) {
+      throw createError(response.status, "message");
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const updatePlotOrder = async (resource) => {
   const requestUrl = `${process.env.REACT_APP_SERVER_URL}/plots/order`;
 

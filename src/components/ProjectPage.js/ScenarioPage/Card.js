@@ -1,10 +1,23 @@
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
 import { useDrag, useDrop } from "react-dnd";
+
+import { deletePlot } from "../../../api/service";
 
 import { PLOT_CARD } from "../../../modules/dndTypes";
 
-export const Card = ({ data, handleSelectedCard, id, text, index, moveCard, isTimeFlag }) => {
+import { OK } from "../../../constants/messages";
+import { removePlot } from "../../../modules/plots";
+
+export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plots }) => {
   const ref = useRef(null);
+  const dispatch = useDispatch();
+
+  const {
+    _id: id,
+    situation: text,
+    isTimeFlag,
+  } = data;
 
   const [{ handlerId }, drop] = useDrop({
     accept: PLOT_CARD,
@@ -55,6 +68,26 @@ export const Card = ({ data, handleSelectedCard, id, text, index, moveCard, isTi
     handleSelectedCard(data);
   };
 
+  const handleCardDelete = async () => {
+    const answer = window.confirm("카드를 삭제하시겠습니까?");
+
+    if (!answer) return;
+
+    if (index === 0) {
+      alert("새 카드를 만든 후 다시 시도해주십시오.");
+    }
+
+    const resource = { projectId, plotId: id };
+    const response = await deletePlot(resource);
+
+    if (response.result !== OK) {
+      alert("삭제하지 못했습니다.");
+    }
+
+    handleSelectedCard(plots[index - 1]);
+    dispatch(removePlot(index));
+  };
+
   return (
     <div
       className={isTimeFlag ? "chapter-card card--hover" : "plot-card card--hover"}
@@ -62,6 +95,7 @@ export const Card = ({ data, handleSelectedCard, id, text, index, moveCard, isTi
       style={{ opacity }}
       data-handler-id={handlerId}
       onClick={handleCardClick}
+      onDoubleClick={handleCardDelete}
     >
       <div className={isTimeFlag ? "chapter-card__text" : "plot-card__text"}>
         {text}

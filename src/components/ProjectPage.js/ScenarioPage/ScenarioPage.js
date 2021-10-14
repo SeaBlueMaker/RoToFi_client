@@ -28,7 +28,7 @@ export default function ScenarioPage() {
       <div className="scenario-page">
         <div className="timeline">
           <DndProvider backend={HTML5Backend}>
-            <TimeLine handleSelectedPlot={setSelectedPlot} plots={plotList} />
+            <TimeLine handleSelectedPlot={setSelectedPlot} />
           </DndProvider>
         </div>
         <div className="editor">

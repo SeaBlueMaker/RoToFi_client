@@ -4,6 +4,7 @@ const INSERT_DIALOGUE = "plots/INSERT_DIALOGUE";
 const INSERT_PLOT = "plots/INSERT_PLOT";
 const CLEAR_PLOTS = "plots/CLEAR_PLOTS";
 const CHANGE_PLOTS = "plots/CHANGE_PLOTS";
+const REMOVE_PLOT = "plots/REMOVE_PLOT";
 
 export const changeSituation = (data, plotId) => ({
   type: CHANGE_SITUATION,
@@ -35,6 +36,11 @@ export const clearPlots = () => ({
 export const changePlots = (data) => ({
   type: CHANGE_PLOTS,
   plots: data,
+});
+
+export const removePlot = (index) => ({
+  type: REMOVE_PLOT,
+  targetIndex: index,
 });
 
 const initialState = {
@@ -102,6 +108,11 @@ export const plots = (state = initialState, action) => {
       return {
         ...state,
         plots: action.plots,
+      };
+    case REMOVE_PLOT:
+      return {
+        ...state,
+        plots: state.plots.filter((plot, index) => index !== action.targetIndex),
       };
     default:
       return state;

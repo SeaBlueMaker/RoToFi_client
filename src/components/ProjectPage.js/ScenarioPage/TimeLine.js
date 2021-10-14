@@ -59,13 +59,12 @@ export const TimeLine = ({ handleSelectedPlot }) => {
     return (
       <Card
         data={card}
+        projectId={projectId}
         key={card._id}
         index={index}
-        id={card._id}
-        text={card.situation}
         moveCard={moveCard}
-        isTimeFlag={card.isTimeFlag}
         handleSelectedCard={handleSelectedPlot}
+        plots={plots}
       />
     );
   };
