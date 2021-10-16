@@ -79,11 +79,14 @@
   height: 45%;
   padding: 30px;
   box-sizing: border-box;
-  background-color: cadetblue;
+  background-color: rgba(224, 224, 224, 0.616);
   border: 2px solid black;
   border-radius: 5px;
   word-break: break-all;
   overflow: scroll;
+
+  white-space: normal;
+  line-height: 1.5;
 }
 
 .dialogue {
@@ -122,8 +125,19 @@
 }
 
 .location__title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
+}
+
+.input__location__title {
+  height: 25px;
+  font-size: 25px;
+  font-weight: bold;
+
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: scroll;
 }
 
 .location-image {

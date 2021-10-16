@@ -28,7 +28,7 @@ export default function addPhoto() {
     return "";
   }
 
-  const maxSize = 1 * 1024 * 1024;
+  const maxSize = 2 * 1024 * 1024;
   const fileSize = file.size;
 
   if (fileSize > maxSize) {

@@ -7,7 +7,10 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background-color: #eeeeee;
+
+  background: #C9FFBF;
+  background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);
+  background: linear-gradient(to right, #FFAFBD, #C9FFBF);
 }
 
 .card--hover {
@@ -31,6 +34,14 @@ button {
   outline: none;
   background: none;
   cursor: pointer;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: scroll;
 }
 
 .page {

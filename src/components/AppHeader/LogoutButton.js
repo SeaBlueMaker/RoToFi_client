@@ -3,12 +3,14 @@ import { useHistory } from "react-router";
 import firebaseAPI from "../../api/firebase";
 import { logout } from "../../api/service";
 
+import Button from "../Button";
+
 import { OK } from "../../constants/messages";
 
 export default function LogoutButton({ handleLoginStatus }) {
   const history = useHistory();
 
-  const handleOnClick = async () => {
+  const handleLogout = async () => {
     const { result } = await logout();
 
     if (result === OK) {
@@ -23,8 +25,10 @@ export default function LogoutButton({ handleLoginStatus }) {
   };
 
   return (
-    <button className="header-button pop" onClick={handleOnClick}>
-      <img src="/images/logout_button.png" alt="로그아웃 버튼" />
-    </button>
+    <Button
+      className="button button--round button--brown pop"
+      content="Log Out"
+      onClick={handleLogout}
+    />
   );
 }

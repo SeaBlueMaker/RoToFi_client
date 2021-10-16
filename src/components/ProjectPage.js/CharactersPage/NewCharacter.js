@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { createCharacter } from "../../../api/service";
 
-import { OK } from "../../../constants/messages";
-
 import { insertCharacter } from "../../../modules/characters";
 
+import { OK } from "../../../constants/messages";
+
+import Button from "../../Button";
 import addPhoto from "../../../utils/addPhoto";
 
 export default function NewCharacter({ handleFinishAdd }) {
@@ -86,15 +87,19 @@ export default function NewCharacter({ handleFinishAdd }) {
     <div className="character-info">
       <div className="first inputs">
         <input
-          className="input-name"
+          className="name"
           placeholder="이곳에 이름을 입력하세요"
           value={name}
           onChange={(event) => setName(event.target.value)}
           autoFocus
         />
-        <button className="character-button pop" onClick={handleCompleteClick}>
-          <img src="/images/complete_button.png" alt="완료 버튼" />
-        </button>
+        <div className="character-button">
+          <Button
+            className="button button--square button--white pop"
+            content="Make!"
+            onClick={handleCompleteClick}
+          />
+        </div>
       </div>
       <div className="second">
         <div className="character-image">

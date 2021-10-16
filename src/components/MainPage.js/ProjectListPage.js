@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 
 import { getProjectList } from "../../api/service";
 
 import ProjectList from "./ProjectList";
+import Button from "../Button";
 
 import "./style.scss";
 
 export default function ProjectListPage() {
   const [ projects, setProjects ] = useState(null);
+
+  const history = useHistory();
+
+  const handleOnClick = () => {
+    history.push("/projects/new");
+  };
 
   useEffect(() => {
     (async () => {
@@ -22,9 +30,11 @@ export default function ProjectListPage() {
   return (
     <div className="page page--width-70">
       <div className="new-project-button-wrap">
-        <a href="/projects/new">
-          <img className="new-project-button" src="/images/new_project_button.png" alt="새 프로젝트 생성 버튼" />
-        </a>
+        <Button
+          className="button button--square button--transparent pop"
+          content="Make New Project"
+          onClick={handleOnClick}
+        />
       </div>
       <div className="list-box">
         {projects && <ProjectList projects={projects} />}

@@ -2,6 +2,8 @@ import { useHistory } from "react-router";
 
 import { deleteProject } from "../../api/service";
 
+import Button from "../Button";
+
 import { OK } from "../../constants/messages";
 
 export default function Project({ project }) {
@@ -10,6 +12,10 @@ export default function Project({ project }) {
   const history = useHistory();
 
   const handleOnClick = async () => {
+    const answer = window.confirm("카드를 삭제하시겠습니까?");
+
+    if (!answer) return;
+
     try {
       const resource = { projectId: _id };
 
@@ -29,9 +35,13 @@ export default function Project({ project }) {
     <div className="box--flex">
       <div className="title link--no-effect">{title}</div>
       <div className="description link--no-effect">{description}</div>
-      <button className="delete-button button--flex" onClick={handleOnClick}>
-        <img src="/images/delete_button.png" alt="삭제 버튼" />
-      </button>
+      <div className="button--flex">
+        <Button
+          className="button button--round button--white pop"
+          content="Delete"
+          onClick={handleOnClick}
+        />
+      </div>
     </div>
   );
 }

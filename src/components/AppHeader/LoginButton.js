@@ -4,6 +4,8 @@ import { useHistory } from "react-router";
 import firebaseAPI from "../../api/firebase";
 import { checkMember } from "../../api/service";
 
+import Button from "../Button";
+
 import "./style.scss";
 
 export default function LoginButton({ handleLoginStatus }) {
@@ -42,8 +44,10 @@ export default function LoginButton({ handleLoginStatus }) {
   };
 
   return (
-    <button className="header-button pop" onClick={handleLogin}>
-      <img src="/images/login_button.png" alt="로그인 버튼" />
-    </button>
+    <Button
+      className="button button--round button--brown pop"
+      content="Log In"
+      onClick={handleLogin}
+    />
   );
 }

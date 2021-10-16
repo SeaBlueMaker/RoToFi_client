@@ -70,7 +70,8 @@ export default function SituationTab({ plot, handlePlotChange }) {
       <div className="situation-header">
         {isEditable && (
           <textarea
-            className="textarea-situation"
+            className="input__location__title"
+            wrap="hard"
             value={changedTitle}
             onChange={(event) => setChangedTitle(event.target.value)}
           />

@@ -3,10 +3,14 @@ import { useHistory } from "react-router";
 
 import { createProject } from "../../api/service";
 
+import Button from "../Button";
+
 import {
   EXCESSIVE_DESCRIPTION_LENGTH,
   OK
 } from "../../constants/messages";
+
+import "./style.scss";
 
 export default function NewProjectPage() {
   const [ title, setTitle ] = useState("");
@@ -45,13 +49,32 @@ export default function NewProjectPage() {
   };
 
   return (
-    <div>
-      <label>
-        <input type="text" placeholder="작품명" onChange={handleTitleChange} />
-        <input type="text" placeholder="작품설명" onChange={handleDescriptionChange} />
-      </label>
-      <button onClick={handleSubmitClick}>완료</button>
-      <button onClick={handleCancelClick}>취소</button>
+    <div className="page--align">
+      <div className="page__content__box">
+        <input
+          className="title"
+          type="text"
+          placeholder="작품명을 입력하세요"
+          onChange={handleTitleChange}
+        />
+        <textarea
+          className="description"
+          placeholder="작품설명을 입력하세요"
+          onChange={handleDescriptionChange}
+        />
+        <div className="button-set--align">
+          <Button
+            className="button button--square button--blue pop"
+            content="Create"
+            onClick={handleSubmitClick}
+          />
+          <Button
+            className="button button--square button--red pop"
+            content="Cancel"
+            onClick={handleCancelClick}
+          />
+        </div>
+      </div>
     </div>
   );
 }
