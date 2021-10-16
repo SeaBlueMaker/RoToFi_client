@@ -9,7 +9,7 @@
 
 .timeline {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   flex-basis: 500px;
@@ -17,18 +17,15 @@
   padding: 30px;
   box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 
-  background-color: #FFFFFF;
+  background-color: #f5eeee85;
   background-image: url("./timelineImages/line.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 10px;
+  background-size: 8.5px;
   background-position-x: 140px;
-  background-position-y: 100px;
-
-  overflow: scroll;
+  background-position-y: 80px;
 
   .title {
-    margin-bottom: 15px;
     font-size: 30px;
     font-weight: bold;
     text-align: center;
@@ -36,6 +33,13 @@
 
   .line-image {
     height: 700px;
+  }
+
+  .card-container-wrap {
+    width: 100%;
+    height: 80%;
+
+    overflow: scroll;
   }
 
   .card-container {
@@ -78,7 +82,7 @@
 .chapter-card__text {
   width: 160px;
   height: 10px;
-  padding: 10px;
+  padding: 11px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -98,21 +102,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 100%;
+
+  .title {
+    color: #5f5757;
+  }
 }
 
-.card-button__plot {
-  width: 60px;
-  height: 35px;
-}
+.timeline__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
-.card-button__chapter {
-  width: 60px;
-  height: 40px;
-}
-
-.card-button__order {
-  width: 89px;
-  height: 35px;
+  width: 100%;
 }
 
 .movable-card {
@@ -131,7 +134,7 @@
   flex-grow: 1;
   height: 70vh;
   padding: 20px 40px 40px 40px;
-  background-color: #FFFFFF;
+  background-color: #f5eeee85;
   overflow: scroll;
   box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 }

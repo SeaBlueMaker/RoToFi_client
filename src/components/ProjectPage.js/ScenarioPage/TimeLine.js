@@ -15,6 +15,7 @@ import {
 } from "../../../modules/plots";
 
 import { OK } from "../../../constants/messages";
+import Button from "../../Button";
 
 export const TimeLine = ({ handleSelectedPlot }) => {
   const projectId = useSelector(state => state.project._id);
@@ -95,33 +96,29 @@ export const TimeLine = ({ handleSelectedPlot }) => {
   return (
     <>
       <div className="timeline__header">
-        <button onClick={() => handleCreatePlot(true)}>
-          <img
-            className="card-button__plot"
-            src="/images/flag_button.png"
-            alt="플래그 추가 버튼"
-          />
-        </button>
         <div className="title">Time Line</div>
-        <button onClick={() => handleCreatePlot(false)}>
-          <img
-            className="card-button__chapter"
-            src="/images/card_button.png"
-            alt="플롯 카드 추가 버튼"
-          />
-        </button>
       </div>
-      <button onClick={() => handleSaveOrder(true)}>
-        <img
-          className="card-button__order pop"
-          src="/images/order_save_button.png"
-          alt="타임라인 순서 저장 버튼"
-        />
-      </button>
-      <div>
+      <div className="card-container-wrap">
         <div className="card-container">
           {plotCards.map((card, index) => renderCard(card, index))}
         </div>
+      </div>
+      <div className="timeline__buttons">
+        <Button
+          className="button button--square button--purple"
+          content="Add Chapter Card"
+          onClick={() => handleCreatePlot(true)}
+        />
+        <Button
+          className="button button--round button--transparent"
+          content="Save Order"
+          onClick={() => handleSaveOrder(true)}
+        />
+        <Button
+          className="button button--square button--purple"
+          content="Add Plot Card"
+          onClick={() => handleCreatePlot(false)}
+        />
       </div>
     </>
   );

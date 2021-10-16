@@ -8,6 +8,7 @@ import { OK } from "../../../constants/messages";
 import { updateCharacter } from "../../../modules/characters";
 
 import addPhoto from "../../../utils/addPhoto";
+import Button from "../../Button";
 
 export default function Information({ isEditable, handleEditable, showingCharacter, handleShowingCharacter }) {
   const [ updatedCharacter, setUpdatedCharacter ] = useState({});
@@ -132,9 +133,11 @@ export default function Information({ isEditable, handleEditable, showingCharact
           </button>
         )}
         {isEditable && (
-          <button className="character-button pop" onClick={handleCompleteClick}>
-            <img src="/images/complete_button.png" alt="완료 버튼" />
-          </button>
+          <Button
+            className="button button--square button--purple pop"
+            content="Save"
+            onClick={handleCompleteClick}
+          />
         )}
       </div>
       <div className="second">

@@ -37,7 +37,7 @@ export default function Project({ project }) {
       <div className="description link--no-effect">{description}</div>
       <div className="button--flex">
         <Button
-          className="button button--round button--white pop"
+          className="button button--round button--white"
           content="Delete"
           onClick={handleOnClick}
         />

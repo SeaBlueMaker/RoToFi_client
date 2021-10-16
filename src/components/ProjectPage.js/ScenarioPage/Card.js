@@ -91,6 +91,7 @@ export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plo
   return (
     <div
       className={isTimeFlag ? "chapter-card card--hover" : "plot-card card--hover"}
+      title="더블클릭 시 삭제됩니다."
       ref={ref}
       style={{ opacity }}
       data-handler-id={handlerId}

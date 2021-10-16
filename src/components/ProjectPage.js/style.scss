@@ -27,11 +27,13 @@
 
 .nav__category {
   margin: 5px 15px 5px 0;
+
+  color: #5f5757;
   font-size: 20px;
   font-weight: bold;
 
   &:hover {
-    color: rgb(28, 212, 166);
+    color: #B993D6;
   }
 }
 
@@ -50,7 +52,7 @@
   flex-basis: 150px;
   height: 70vh;
   padding: 40px;
-  background-color: #FFFFFF;
+  background-color: #f5eeee85;
   box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 }
 
@@ -77,7 +79,7 @@
   flex-grow: 1;
   height: 70vh;
   padding: 40px;
-  background-color: #FFFFFF;
+  background-color: #f5eeee;
   box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
   overflow: scroll;
 
@@ -178,7 +180,7 @@
 }
 
 .is-active {
-  color: #2b78e4;
+  color: #B993D6;
 }
 
 .edit-button {

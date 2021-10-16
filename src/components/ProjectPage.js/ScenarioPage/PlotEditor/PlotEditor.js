@@ -46,7 +46,7 @@ export default function PlotEditor({ plot, handlePlotChange }) {
 
   return (
     <>
-      <ul className="editor__nav">
+      <ul className="editor__nav box--brown">
         {tabs.map((tab) => (
           tab.tabTitle
         ))}

@@ -8,6 +8,8 @@ import { OK } from "../../../../constants/messages";
 import { insertDialogue } from "../../../../modules/plots";
 import { useDispatch } from "react-redux";
 
+import Button from "../../../Button";
+
 export default function InputBar({ characters, plot, handlePlotChange }) {
   const [ inputText, setInputText ] = useState("");
   const [ selectedCharacter, setSelectedCharacter ] = useState("default");
@@ -18,7 +20,7 @@ export default function InputBar({ characters, plot, handlePlotChange }) {
 
   const handleCreateDialogue = async () => {
     if (selectedCharacter === "default") {
-      alert("인물 혹은 지문을 선택해주세요.");
+      alert("인물명을 선택해주세요.");
 
       return;
     }
@@ -50,13 +52,18 @@ export default function InputBar({ characters, plot, handlePlotChange }) {
         handleSelected={setSelectedCharacter}
       />
       <textarea
-        className="textarea-dialogue"
+        className="textarea-dialogue box--brown"
+        placeholder="대사를 입력하세요"
+        wrap="hard"
+        cols="20"
         value={inputText}
         onChange={handleInputChange}
       />
-      <button className="complete-button pop" onClick={handleCreateDialogue}>
-        <img src="/images/complete_button.png" alt="완료 버튼" />
-      </button>
+      <Button
+        className="button button--round button--brown pop"
+        content="Save"
+        onClick={handleCreateDialogue}
+      />
     </div>
   );
 }

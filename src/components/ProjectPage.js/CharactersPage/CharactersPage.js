@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Button from "../../Button";
 
 import CharacterList from "./CharacterList";
 import Information from "./Information";
@@ -26,9 +27,11 @@ export default function CharactersPage() {
     <div className="character-page">
       <div className="character-page__list-wrap">
         {characters && <CharacterList characterList={characters} handleOnClick={setShowingCharacter} />}
-        <button className="character-button pop" onClick={handleOnClick}>
-          <img src="/images/character_insert_button.png" alt="인물 추가 버튼" />
-        </button>
+        <Button
+          className="button button--square button--transparent pop"
+          content="Add More!"
+          onClick={handleOnClick}
+        />
       </div>
       {isAddible && <NewCharacter handleFinishAdd={setIsAddible} />}
       {!isAddible && (

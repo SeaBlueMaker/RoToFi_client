@@ -1,31 +1,30 @@
 .editor__nav {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   height: 5%;
   padding: 0;
-  margin: 10px 0;
+
+  color: #5f5757;
+
+  .is-active {
+    color: #eb5757;
+    animation: transparentAppear 0.5s;
+  }
 }
 
 .editor__nav__menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75px;
-  height: 150%;
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+
   font-size: 20px;
   font-weight: bold;
 
-  background-image: url("../../../../cssImages/button_unclicked.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 70px;
-
   &:hover {
-    color: white;
-    background-image: url("../../../../cssImages/button_clicked.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 70px;
     cursor: pointer;
   }
 }
@@ -51,7 +50,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 10%;
   margin-bottom: 10px;
 
   .notification {
@@ -79,19 +77,40 @@
   height: 45%;
   padding: 30px;
   box-sizing: border-box;
-  background-color: rgba(224, 224, 224, 0.616);
-  border: 2px solid black;
+  background-color: #f5eeee;
+  border: 2px solid #d4c6c6;
   border-radius: 5px;
   word-break: break-all;
   overflow: scroll;
 
   white-space: normal;
   line-height: 1.5;
+  flex-wrap: wrap;
+  white-space: pre-line;
+
+  &__full-height {
+    height: 100%;
+  }
 }
 
 .dialogue {
   display: flex;
-  background-color: blueviolet;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &__name {
+    width: 20%;
+    margin: 5px;
+
+    font-weight: bold;
+  }
+
+  &__script {
+    width: 100%;
+    margin: 5px;
+    flex-wrap: wrap;
+    white-space: pre-line;
+  }
 }
 
 .input-bar {
@@ -100,7 +119,6 @@
   align-items: center;
   width: 100%;
   margin-top: 20px;
-  background-color: burlywood;
 }
 
 .textarea-dialogue {

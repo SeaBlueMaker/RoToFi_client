@@ -95,6 +95,17 @@
   }
 }
 
+.button--purple {
+  border: 2px solid #585758;
+  background: #a09fa1;
+  color: #ffffff;
+
+  &:hover {
+    border: 2px solid #B993D6;
+    background: linear-gradient(to right, #8CA6DB, #B993D6);
+  }
+}
+
 .new-project-button-wrap {
   display: flex;
   justify-content: flex-end;

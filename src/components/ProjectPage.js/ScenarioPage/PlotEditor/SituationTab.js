@@ -57,7 +57,7 @@ export default function SituationTab({ plot, handlePlotChange }) {
           </button>
         )}
       </div>
-      <div className="main-content">
+      <div className="main-content main-content__full-height">
         {isEditable && (
           <textarea
             className="textarea-situation"

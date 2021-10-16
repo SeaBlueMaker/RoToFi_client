@@ -26,7 +26,7 @@ export default function LogoutButton({ handleLoginStatus }) {
 
   return (
     <Button
-      className="button button--round button--brown pop"
+      className="button button--round button--brown"
       content="Log Out"
       onClick={handleLogout}
     />
