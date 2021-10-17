@@ -22,6 +22,7 @@ export const TimeLine = ({ handleSelectedPlot }) => {
   const { plots } = useSelector(state => state.plots);
 
   const [ plotCards, setPlotCards ] = useState(plots);
+  const [ debounce, setDebounce ] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -32,7 +33,14 @@ export const TimeLine = ({ handleSelectedPlot }) => {
   useEffect(() => {
     const changedPlotCards = plotCards;
 
-    dispatch(changePlots(changedPlotCards));
+    const debounce = setTimeout(() => {
+      setDebounce(debounce);
+      dispatch(changePlots(changedPlotCards));
+
+      return;
+    }, 300);
+
+    return () => clearTimeout(debounce);
   }, [plotCards]);
 
   const moveCard = useCallback((dragIndex, hoverIndex) => {
