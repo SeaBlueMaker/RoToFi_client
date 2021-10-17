@@ -113,7 +113,7 @@ export default function Information({ isEditable, handleEditable, showingCharact
 
   return (
     <div className="character-info">
-      <div className="first inputs">
+      <div className="box-wrap">
         {isEditable && (
           <input
             className="name"
@@ -134,13 +134,13 @@ export default function Information({ isEditable, handleEditable, showingCharact
         )}
         {isEditable && (
           <Button
-            className="button button--square button--purple pop"
+            className="button button--square button--brown pop"
             content="Save"
             onClick={handleCompleteClick}
           />
         )}
       </div>
-      <div className="second">
+      <div className="box-wrap">
         <div className="character-image">
           {imageURL && (
             <img
@@ -171,9 +171,9 @@ export default function Information({ isEditable, handleEditable, showingCharact
             </div>
           )}
         </div>
-        <div className="second-input inputs">
-          <div>
-            역할
+        <div className="character-info-basic">
+          <div className="box">
+            <div className="title">역할</div>
             {isEditable && (
               <textarea value={role} onChange={(event) => setRole(event.target.value)}/>
             )}
@@ -183,8 +183,8 @@ export default function Information({ isEditable, handleEditable, showingCharact
               </div>
             )}
           </div>
-          <div>
-            성별
+          <div className="box">
+            <div className="title">성별</div>
             {isEditable && (
               <textarea value={sex} onChange={(event) => setSex(event.target.value)}/>
             )}
@@ -194,8 +194,8 @@ export default function Information({ isEditable, handleEditable, showingCharact
               </div>
             )}
           </div>
-          <div>
-            나이
+          <div className="box">
+            <div className="title">나이</div>
             {isEditable && (
               <textarea value={age} onChange={(event) => setAge(event.target.value)}/>
             )}
@@ -205,8 +205,8 @@ export default function Information({ isEditable, handleEditable, showingCharact
               </div>
             )}
           </div>
-          <div>
-            외관
+          <div className="box">
+            <div className="title">외관</div>
             {isEditable && (
               <textarea value={appearance} onChange={(event) => setAppearance(event.target.value)}/>
             )}
@@ -218,9 +218,9 @@ export default function Information({ isEditable, handleEditable, showingCharact
           </div>
         </div>
       </div>
-      <div className="third inputs">
-        <div>
-          성격
+      <div className="character-info-detail">
+        <div className="box">
+          <div className="title">성격</div>
           {isEditable && (
             <textarea value={personality} onChange={(event) => setPersonality(event.target.value)}/>
           )}
@@ -231,7 +231,7 @@ export default function Information({ isEditable, handleEditable, showingCharact
           )}
         </div>
         <div>
-          기타사항
+          <div className="title">기타사항</div>
           {isEditable && (
             <textarea value={etc} onChange={(event) => setEtc(event.target.value)}/>
           )}

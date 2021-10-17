@@ -85,7 +85,7 @@ export default function NewCharacter({ handleFinishAdd }) {
 
   return (
     <div className="character-info">
-      <div className="first inputs">
+      <div className="box-wrap">
         <input
           className="name"
           placeholder="이곳에 이름을 입력하세요"
@@ -101,7 +101,7 @@ export default function NewCharacter({ handleFinishAdd }) {
           />
         </div>
       </div>
-      <div className="second">
+      <div className="box-wrap">
         <div className="character-image">
           {imageURL && (
             <img
@@ -130,32 +130,32 @@ export default function NewCharacter({ handleFinishAdd }) {
             />
           </div>
         </div>
-        <div className="second-input inputs">
-          <div>
-            역할
+        <div className="character-info-basic">
+          <div className="box">
+            <div className="title">역할</div>
             <textarea value={role} onChange={(event) => setRole(event.target.value)}/>
           </div>
-          <div>
-            성별
+          <div className="box">
+            <div className="title">성별</div>
             <textarea value={sex} onChange={(event) => setSex(event.target.value)}/>
           </div>
-          <div>
-            나이
+          <div className="box">
+            <div className="title">나이</div>
             <textarea value={age} onChange={(event) => setAge(event.target.value)}/>
           </div>
-          <div>
-          외관
+          <div className="box">
+            <div className="title">외관</div>
             <textarea value={appearance} onChange={(event) => setAppearance(event.target.value)}/>
           </div>
         </div>
       </div>
-      <div className="third inputs">
-        <div>
-          성격
+      <div className="character-info-detail">
+        <div className="box">
+          <div className="title">성격</div>
           <textarea value={personality} onChange={(event) => setPersonality(event.target.value)}/>
         </div>
-        <div>
-          기타사항
+        <div className="box">
+          <div className="title">기타사항</div>
           <textarea value={etc} onChange={(event) => setEtc(event.target.value)}/>
         </div>
       </div>
