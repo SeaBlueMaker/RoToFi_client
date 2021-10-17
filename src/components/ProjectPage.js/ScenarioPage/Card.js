@@ -75,6 +75,8 @@ export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plo
 
     if (index === 0) {
       alert("새 카드를 만든 후 다시 시도해주십시오.");
+
+      return;
     }
 
     const resource = { projectId, plotId: id };

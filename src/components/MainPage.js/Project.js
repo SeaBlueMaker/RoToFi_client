@@ -21,7 +21,7 @@ export default function Project({ project }) {
 
       const response = await deleteProject(resource);
 
-      if (response === OK) {
+      if (response.result === OK) {
         history.push("/projects");
       }
     } catch (error) {

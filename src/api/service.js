@@ -10,6 +10,9 @@ import {
 import {
   FAILED_LOGIN,
   FAILED_FOR_UNKNOWN_REASON,
+  INVALID_REQUEST,
+  NO_AUTHORITY_TO_ACCESS,
+  NOT_FOUND,
 } from "../constants/messages";
 
 const fetchData = async (url, options) => {
@@ -74,8 +77,8 @@ export const registerUser = async (idToken, resource) => {
   try {
     const response = await fetchData(requestUrl, options);
 
-    if (response.status === 400) {
-      throw createError(response.status, "message");
+    if (response.status === 422) {
+      throw createError(response.status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -119,8 +122,12 @@ export const createProject = async (resource) => {
   try {
     const response = await fetchData(requestUrl, options);
 
-    if (response.status === 400) {
-      throw createError(response.status, "message");
+    if (response.status === 403) {
+      throw createError(response.status, NO_AUTHORITY_TO_ACCESS);
+    }
+
+    if (response.status === 422) {
+      throw createError(response.status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -145,10 +152,6 @@ export const getProject = async (id) => {
   try {
     const response = await fetchData(requestUrl, options);
 
-    if (response.status === 400) {
-      throw createError(response.status, "message");
-    }
-
     const data = await response.json();
 
     return data;
@@ -170,10 +173,6 @@ export const getProjectList = async () => {
 
   try {
     const response = await fetchData(requestUrl, options);
-
-    if (response.status === 400) {
-      throw createError(response.status, "message");
-    }
 
     const data = await response.json();
 
@@ -198,8 +197,8 @@ export const deleteProject = async (resource) => {
   try {
     const response = await fetchData(requestUrl, options);
 
-    if (response.status === 400) {
-      throw createError(response.status, "message");
+    if (response.status === 404) {
+      throw createError(response.status, NOT_FOUND);
     }
 
     const data = await response.json();
@@ -225,8 +224,8 @@ export const createCharacter = async (resource) => {
   try {
     const response = await fetchData(requestUrl, options);
 
-    if (response.status === 400) {
-      throw createError(response.status, "message");
+    if (response.status === 422) {
+      throw createError(response.status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -253,8 +252,8 @@ export const modifyCharacter = async (resource) => {
     const response = await fetchData(requestUrl, options);
     const { status } = response;
 
-    if (response.status === 400) {
-      throw createError(status, "message");
+    if (response.status === 422) {
+      throw createError(status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -280,8 +279,8 @@ export const createPlot = async (resource) => {
   try {
     const response = await fetchData(requestUrl, options);
 
-    if (response.status === 400) {
-      throw createError(response.status, "message");
+    if (response.status === 422) {
+      throw createError(response.status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -307,8 +306,8 @@ export const deletePlot = async (resource) => {
   try {
     const response = await fetchData(requestUrl, options);
 
-    if (response.status === 400) {
-      throw createError(response.status, "message");
+    if (response.status === 422) {
+      throw createError(response.status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -335,8 +334,8 @@ export const updatePlotOrder = async (resource) => {
     const response = await fetchData(requestUrl, options);
     const { status } = response;
 
-    if (response.status === 400) {
-      throw createError(status, "message");
+    if (response.status === 422) {
+      throw createError(status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -362,8 +361,8 @@ export const createDialogue = async (resource) => {
   try {
     const response = await fetchData(requestUrl, options);
 
-    if (response.status === 400) {
-      throw createError(response.status, "message");
+    if (response.status === 422) {
+      throw createError(response.status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -390,8 +389,8 @@ export const updateSituation = async (resource) => {
     const response = await fetchData(requestUrl, options);
     const { status } = response;
 
-    if (response.status === 400) {
-      throw createError(status, "message");
+    if (response.status === 422) {
+      throw createError(status, INVALID_REQUEST);
     }
 
     const data = await response.json();
@@ -418,8 +417,8 @@ export const updateLocation = async (resource) => {
     const response = await fetchData(requestUrl, options);
     const { status } = response;
 
-    if (response.status === 400) {
-      throw createError(status, "message");
+    if (response.status === 422) {
+      throw createError(status, INVALID_REQUEST);
     }
 
     const data = await response.json();

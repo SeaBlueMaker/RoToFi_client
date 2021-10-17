@@ -8,6 +8,8 @@ import Button from "../Button";
 
 import "./style.scss";
 
+import { OK } from "../../constants/messages";
+
 export default function ProjectListPage() {
   const [ projects, setProjects ] = useState(null);
 
@@ -20,6 +22,14 @@ export default function ProjectListPage() {
   useEffect(() => {
     (async () => {
       const data = await getProjectList();
+
+      if (data.result !== OK) {
+        alert(data);
+
+        history.push("/");
+
+        return;
+      }
 
       const { projects } = data;
 
