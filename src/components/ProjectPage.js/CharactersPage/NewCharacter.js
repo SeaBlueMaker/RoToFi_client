@@ -5,7 +5,11 @@ import { createCharacter } from "../../../api/service";
 
 import { insertCharacter } from "../../../modules/characters";
 
-import { OK } from "../../../constants/messages";
+import {
+  FAILED_BASIC,
+  FAILED_UPLOAD_IMAGE,
+  OK
+} from "../../../constants/messages";
 
 import Button from "../../Button";
 import addPhoto from "../../../utils/addPhoto";
@@ -33,8 +37,8 @@ export default function NewCharacter({ handleFinishAdd }) {
 
       const response = await createCharacter(resource);
 
-      if (response.result === OK) {
-        alert("새 인물이 생성되었습니다.");
+      if (response.result !== OK) {
+        alert(FAILED_BASIC);
 
         return response.createdCharacter;
       }
@@ -67,7 +71,7 @@ export default function NewCharacter({ handleFinishAdd }) {
     const data = await addPhoto();
 
     if (!data) {
-      alert("이미지를 첨부하지 못했습니다. 다시 시도해 주십시오.");
+      alert(FAILED_UPLOAD_IMAGE);
 
       return;
     }

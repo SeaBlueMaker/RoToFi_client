@@ -4,10 +4,16 @@ import { useDrag, useDrop } from "react-dnd";
 
 import { deletePlot } from "../../../api/service";
 
+import { removePlot } from "../../../modules/plots";
+
 import { PLOT_CARD } from "../../../modules/dndTypes";
 
-import { OK } from "../../../constants/messages";
-import { removePlot } from "../../../modules/plots";
+import {
+  CONFIRM_DELETE_CARD,
+  CREATE_NEW_CARD,
+  FAILED_BASIC,
+  OK
+} from "../../../constants/messages";
 
 export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plots }) => {
   const ref = useRef(null);
@@ -69,12 +75,12 @@ export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plo
   };
 
   const handleCardDelete = async () => {
-    const answer = window.confirm("카드를 삭제하시겠습니까?");
+    const answer = window.confirm(CONFIRM_DELETE_CARD);
 
     if (!answer) return;
 
     if (index === 0) {
-      alert("새 카드를 만든 후 다시 시도해주십시오.");
+      alert(CREATE_NEW_CARD);
 
       return;
     }
@@ -83,7 +89,7 @@ export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plo
     const response = await deletePlot(resource);
 
     if (response.result !== OK) {
-      alert("삭제하지 못했습니다.");
+      alert(FAILED_BASIC);
     }
 
     handleSelectedCard(plots[index - 1]);

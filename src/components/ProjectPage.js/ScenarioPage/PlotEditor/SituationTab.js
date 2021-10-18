@@ -5,7 +5,10 @@ import { updateSituation } from "../../../../api/service";
 
 import { changeSituation } from "../../../../modules/plots";
 
-import { OK } from "../../../../constants/messages";
+import {
+  FAILED_BASIC,
+  OK,
+} from "../../../../constants/messages";
 
 export default function SituationTab({ plot, handlePlotChange }) {
   const { situation } = plot;
@@ -27,8 +30,8 @@ export default function SituationTab({ plot, handlePlotChange }) {
 
     const response = await updateSituation(resource);
 
-    if (response.result === OK) {
-      alert("작성이 완료되었습니다.");
+    if (response.result !== OK) {
+      alert(FAILED_BASIC);
     }
 
     const updatedSituation = response.updatedPlot.situation;

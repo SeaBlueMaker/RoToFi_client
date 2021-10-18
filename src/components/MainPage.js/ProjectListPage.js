@@ -3,12 +3,15 @@ import { useHistory } from "react-router";
 
 import { getProjectList } from "../../api/service";
 
+import {
+  TOKEN_EXPIRED,
+  OK,
+} from "../../constants/messages";
+
 import ProjectList from "./ProjectList";
 import Button from "../Button";
 
 import "./style.scss";
-
-import { OK } from "../../constants/messages";
 
 export default function ProjectListPage() {
   const [ projects, setProjects ] = useState(null);
@@ -24,7 +27,7 @@ export default function ProjectListPage() {
       const data = await getProjectList();
 
       if (data.result !== OK) {
-        alert(data);
+        alert(TOKEN_EXPIRED);
 
         history.push("/");
 

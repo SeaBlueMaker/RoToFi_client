@@ -5,7 +5,11 @@ import { updateLocation } from "../../../../api/service";
 
 import { changeLocation } from "../../../../modules/plots";
 
-import { OK } from "../../../../constants/messages";
+import {
+  FAILED_BASIC,
+  FAILED_UPLOAD_IMAGE,
+  OK,
+} from "../../../../constants/messages";
 
 import addPhoto from "../../../../utils/addPhoto";
 
@@ -34,8 +38,8 @@ export default function SituationTab({ plot, handlePlotChange }) {
 
     const response = await updateLocation(resource);
 
-    if (response.result === OK) {
-      alert("작성이 완료되었습니다.");
+    if (response.result !== OK) {
+      alert(FAILED_BASIC);
     }
 
     const updatedLocation = response.updatedPlot.location;
@@ -49,7 +53,7 @@ export default function SituationTab({ plot, handlePlotChange }) {
     const data = await addPhoto();
 
     if (!data) {
-      alert("이미지를 첨부하지 못했습니다. 다시 시도해 주십시오.");
+      alert(FAILED_UPLOAD_IMAGE);
 
       return;
     }

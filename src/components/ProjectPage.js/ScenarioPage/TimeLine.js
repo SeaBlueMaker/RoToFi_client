@@ -14,7 +14,19 @@ import {
   insertPlot,
 } from "../../../modules/plots";
 
-import { OK } from "../../../constants/messages";
+import {
+  FAILED_BASIC,
+  REFRESH,
+  OK,
+} from "../../../constants/messages";
+
+import {
+  CARD_LOCATION_DESCRIPTION,
+  CARD_LOCATION_IMAGE,
+  CARD_LOCATION_TITLE,
+  CARD_SITUATION
+} from "../../../constants/examples";
+
 import Button from "../../Button";
 
 export const TimeLine = ({ handleSelectedPlot }) => {
@@ -60,7 +72,7 @@ export const TimeLine = ({ handleSelectedPlot }) => {
     const response = await updatePlotOrder(resource);
 
     if (response.result !== OK) {
-      alert("새로고침이 필요합니다.");
+      alert(REFRESH);
     }
   };
 
@@ -82,18 +94,18 @@ export const TimeLine = ({ handleSelectedPlot }) => {
     const resource = {
       projectId,
       isTimeFlag: boolean,
-      situation: "해당 플롯에서 일어나는 상황을 정리하는 공간입니다. 우측 상단의 편집 버튼을 눌러 편집하세요.",
+      situation: CARD_SITUATION,
       location: {
-        title: "School",
-        imageURL: "",
-        description: "장소에 대한 설명을 정리하는 공간입니다.",
+        title: CARD_LOCATION_TITLE,
+        imageURL: CARD_LOCATION_IMAGE,
+        description: CARD_LOCATION_DESCRIPTION,
       },
     };
 
     const response = await createPlot(resource);
 
     if (response.result !== OK) {
-      alert("플롯을 생성하지 못했습니다. 새로고침 후 다시 시도해주십시오.");
+      alert(FAILED_BASIC);
 
       return;
     }

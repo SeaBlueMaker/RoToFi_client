@@ -3,7 +3,11 @@ import { useDispatch } from "react-redux";
 
 import { modifyCharacter } from "../../../api/service";
 
-import { OK } from "../../../constants/messages";
+import {
+  UPDATE_COMPLETED,
+  OK,
+  FAILED_UPLOAD_IMAGE,
+} from "../../../constants/messages";
 
 import { updateCharacter } from "../../../modules/characters";
 
@@ -33,7 +37,7 @@ export default function Information({ isEditable, handleEditable, showingCharact
       const response = await modifyCharacter(resource);
 
       if (response.result === OK) {
-        alert("수정이 완료되었습니다.");
+        alert(UPDATE_COMPLETED);
 
         return response.updatedCharacterData;
       }
@@ -101,7 +105,7 @@ export default function Information({ isEditable, handleEditable, showingCharact
     const data = await addPhoto();
 
     if (!data) {
-      alert("이미지를 첨부하지 못했습니다. 다시 시도해 주십시오.");
+      alert(FAILED_UPLOAD_IMAGE);
 
       return;
     }

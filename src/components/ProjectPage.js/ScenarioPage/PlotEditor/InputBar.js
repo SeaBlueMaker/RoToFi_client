@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import CharacterSelectBox from "./CharacterSelectBox";
 
 import { createDialogue } from "../../../../api/service";
 
-import { OK } from "../../../../constants/messages";
+import {
+  FAILED_BASIC,
+  SELECT_CHARACTER,
+  OK,
+} from "../../../../constants/messages";
 
 import { insertDialogue } from "../../../../modules/plots";
-import { useDispatch } from "react-redux";
 
 import Button from "../../../Button";
 
@@ -20,7 +24,7 @@ export default function InputBar({ characters, plot, handlePlotChange }) {
 
   const handleCreateDialogue = async () => {
     if (selectedCharacter === "default") {
-      alert("인물명을 선택해주세요.");
+      alert(SELECT_CHARACTER);
 
       return;
     }
@@ -33,8 +37,8 @@ export default function InputBar({ characters, plot, handlePlotChange }) {
 
     const response = await createDialogue(resource);
 
-    if (response.result === OK) {
-      alert("작성이 완료되었습니다.");
+    if (response.result !== OK) {
+      alert(FAILED_BASIC);
     }
 
     const updatedDialogues = response.updatedPlot.dialogues;
