@@ -2,16 +2,30 @@ html,
 #root {
   min-height: 100%;
   height: 100%;
-  font-family: 'GowunBatang-Regular';
+  font-family: "GowunBatang-Regular";
 }
 
 body {
   height: 100%;
   margin: 0;
+}
 
+.theme--morning {
   background: #C9FFBF;
   background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);
   background: linear-gradient(to right, #FFAFBD, #C9FFBF);
+}
+
+.theme--afternoon {
+  background: #076585;
+  background: -webkit-linear-gradient(to top, #fff, #076585);
+  background: linear-gradient(to top, #fff, #076585);
+}
+
+.theme--midnight {
+  background: #003973;
+  background: -webkit-linear-gradient(to top, #E5E5BE, #003973);
+  background: linear-gradient(to top, #E5E5BE, #003973);
 }
 
 .card--hover {

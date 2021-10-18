@@ -29,3 +29,15 @@
     height: 35px;
   }
 }
+
+.user-menu {
+  display: flex;
+
+  select {
+    padding: 10px;
+    margin: 0 20px;
+
+    font-weight: bold;
+    border-radius: 5px;
+  }
+}
