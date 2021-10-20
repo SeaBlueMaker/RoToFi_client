@@ -15,7 +15,7 @@ import {
   OK
 } from "../../../constants/messages";
 
-export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plots }) => {
+export const Card = ({ data, projectId, index, moveCard, selectedPlot, handleSelectedCard, plots }) => {
   const ref = useRef(null);
   const dispatch = useDispatch();
 
@@ -24,6 +24,8 @@ export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plo
     situation: text,
     isTimeFlag,
   } = data;
+
+  const isSelectedPlot = id === selectedPlot._id;
 
   const [{ handlerId }, drop] = useDrop({
     accept: PLOT_CARD,
@@ -97,18 +99,37 @@ export const Card = ({ data, projectId, index, moveCard, handleSelectedCard, plo
   };
 
   return (
-    <div
-      className={isTimeFlag ? "chapter-card card--hover" : "plot-card card--hover"}
-      title="더블클릭 시 삭제됩니다."
-      ref={ref}
-      style={{ opacity }}
-      data-handler-id={handlerId}
-      onClick={handleCardClick}
-      onDoubleClick={handleCardDelete}
-    >
-      <div className={isTimeFlag ? "chapter-card__text" : "plot-card__text"}>
-        {text}
-      </div>
-    </div>
+    <>
+      {isSelectedPlot && (
+        <div
+          className={isTimeFlag ? "chapter-card-selected card--hover" : "plot-card-selected card--hover"}
+          title="더블클릭 시 삭제됩니다."
+          ref={ref}
+          style={{ opacity }}
+          data-handler-id={handlerId}
+          onClick={handleCardClick}
+          onDoubleClick={handleCardDelete}
+        >
+          <div className={isTimeFlag ? "chapter-card__text" : "plot-card__text"}>
+            {text}
+          </div>
+        </div>
+      )}
+      {!isSelectedPlot && (
+        <div
+          className={isTimeFlag ? "chapter-card card--hover" : "plot-card card--hover"}
+          title="더블클릭 시 삭제됩니다."
+          ref={ref}
+          style={{ opacity }}
+          data-handler-id={handlerId}
+          onClick={handleCardClick}
+          onDoubleClick={handleCardDelete}
+        >
+          <div className={isTimeFlag ? "chapter-card__text" : "plot-card__text"}>
+            {text}
+          </div>
+        </div>
+      )}
+    </>
   );
 };

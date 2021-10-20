@@ -29,7 +29,7 @@ import {
 
 import Button from "../../Button";
 
-export const TimeLine = ({ handleSelectedPlot }) => {
+export const TimeLine = ({ selectedPlot, handleSelectedPlot }) => {
   const projectId = useSelector(state => state.project._id);
   const { plots } = useSelector(state => state.plots);
 
@@ -84,6 +84,7 @@ export const TimeLine = ({ handleSelectedPlot }) => {
         key={card._id}
         index={index}
         moveCard={moveCard}
+        selectedPlot={selectedPlot}
         handleSelectedCard={handleSelectedPlot}
         plots={plots}
       />

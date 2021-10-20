@@ -51,17 +51,17 @@
   }
 
   .plot-card {
-    height: 140px;
+    height: 120px;
     padding: 15px;
     margin: 10px 10px 10px 130px;
     border-radius: 10px;
     cursor: move;
     animation: transparentAppear 0.5s;
 
-    background-image: url("./timelineImages/plot_card.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 350px;
+    border-radius: 20px;
+    border: 2px solid #E5E5BE;
+    background-color: #E5E5BE;
+    box-shadow: 6px 6px #7ead9e;
   }
 
   .chapter-card {
@@ -72,30 +72,65 @@
     cursor: move;
     animation: transparentAppear 0.5s;
 
-    background-image: url("./timelineImages/chapter_card.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 200px;
+    border-radius: 5px;
+    border-radius: 5px;
+    border: 2px solid #E5E5BE;
+    background-color: #7ead9e;
+    box-shadow: 6px 6px #4e6b62;
+  }
+
+  .plot-card-selected {
+    height: 120px;
+    padding: 15px;
+    margin: 10px 10px 10px 130px;
+    border-radius: 10px;
+    cursor: move;
+    animation: transparentAppear 0.5s;
+
+    border-radius: 20px;
+    border: 4px solid #4e6b62;
+    background-color: #eb5757;
+    box-shadow: 6px 6px #4e6b62;
+  }
+
+  .chapter-card-selected {
+    width: 200px;
+    height: 40px;
+    margin: 10px 270px 10px 10px;
+    border-radius: 10px;
+    cursor: move;
+    animation: transparentAppear 0.5s;
+
+    border-radius: 5px;
+    border: 4px solid #E5E5BE;
+    background-color: #eb5757;
+    box-shadow: 6px 6px #4e6b62;
   }
 }
 
 .chapter-card__text {
-  width: 160px;
-  height: 10px;
+  width: 180px;
+  height: 20px;
+  line-height: 20px;
   padding: 11px;
+
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .plot-card__text {
   width: 290px;
-  margin: 10px 10px 10px 20px;
+  height: 6.0em;
+  line-height: 1.2;
+  margin: 10px;
+
   overflow: hidden;
   text-overflow: ellipsis;
-
   white-space: normal;
-  line-height: 1.2;
-  height: 6.0em;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .timeline__header {
