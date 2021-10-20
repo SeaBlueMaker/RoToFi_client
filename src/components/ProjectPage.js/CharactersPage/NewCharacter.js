@@ -110,7 +110,7 @@ export default function NewCharacter({ handleFinishAdd }) {
           {imageURL && (
             <img
               src={imageURL}
-              alt="프로필 이미지"
+              alt="등장인물 이미지"
               width="180"
               height="180"
             />

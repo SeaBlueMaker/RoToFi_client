@@ -132,7 +132,7 @@ export default function Information({ isEditable, handleEditable, showingCharact
           </div>
         )}
         {!isEditable && (
-          <button className="edit-button lotate" onClick={handleEditClick}>
+          <button className="edit-button rotate" onClick={handleEditClick}>
             <img src="/images/edit_button.png" alt="수정하기 버튼" />
           </button>
         )}
@@ -149,7 +149,7 @@ export default function Information({ isEditable, handleEditable, showingCharact
           {imageURL && (
             <img
               src={imageURL}
-              alt="프로필 이미지"
+              alt="등장인물 이미지"
               width="180"
               height="180"
             />

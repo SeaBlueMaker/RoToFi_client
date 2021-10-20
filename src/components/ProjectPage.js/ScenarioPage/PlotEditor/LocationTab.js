@@ -11,9 +11,10 @@ import {
   OK,
 } from "../../../../constants/messages";
 
+import Button from "../../../Button";
 import addPhoto from "../../../../utils/addPhoto";
 
-export default function SituationTab({ plot, handlePlotChange }) {
+export default function LocationTab({ plot, handlePlotChange }) {
   const { location } = plot;
   const { title, imageURL, description } = location;
 
@@ -86,21 +87,23 @@ export default function SituationTab({ plot, handlePlotChange }) {
           </div>
         )}
         {!isEditable && (
-          <button className="edit-button lotate" onClick={handleEditClick}>
+          <button className="edit-button rotate" onClick={handleEditClick}>
             <img src="/images/edit_button.png" alt="수정하기 버튼" />
           </button>
         )}
         {isEditable && (
-          <button className="character-button pop" onClick={handleCompleteClick}>
-            <img src="/images/complete_button.png" alt="완료 버튼" />
-          </button>
+          <Button
+            className="button button--square button--brown pop"
+            content="Save"
+            onClick={handleCompleteClick}
+          />
         )}
       </div>
       <div className="location-image">
         {changedImage && (
           <img
             src={changedImage}
-            alt="프로필 이미지"
+            alt="장소 이미지"
             width="180"
             height="180"
           />
