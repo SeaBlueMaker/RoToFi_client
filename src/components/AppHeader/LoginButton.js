@@ -1,8 +1,14 @@
+import { useEffect } from "react";
 import { useState } from "react";
-import { useHistory } from "react-router";
 
 import firebaseAPI from "../../api/firebase";
-import { checkMember } from "../../api/service";
+
+import {
+  checkMember,
+  registerUser,
+} from "../../api/service";
+
+import { OK } from "../../constants/messages";
 
 import Button from "../Button";
 
@@ -11,23 +17,31 @@ import "./style.scss";
 export default function LoginButton({ handleLoginStatus }) {
   const [ idToken, setIdToken ] = useState(null);
 
-  const history = useHistory();
+  useEffect(() => {
+    async function fetchData() {
+      const response = await checkMember(idToken);
+      const { userId } = response;
 
-  if (idToken) {
-    checkMember(idToken).then(({ userId }) => {
       if (userId) {
         localStorage.setItem("userId", userId);
 
         handleLoginStatus(true);
+      } else {
+        const idToken = await firebaseAPI.getToken();
+        const resource = { idToken };
 
-        history.push("/projects");
+        const { result } = await registerUser(idToken, resource);
 
-        return;
+        if (result === OK) {
+          alert("환영합니다! 회원등록이 완료되었으니 로그인 후 이용해주십시오.");
+        }
       }
+    }
 
-      history.push("/users/register");
-    });
-  }
+    if (idToken) {
+      fetchData();
+    }
+  }, [idToken]);
 
   const handleLogin = async () => {
     try {
@@ -46,7 +60,7 @@ export default function LoginButton({ handleLoginStatus }) {
   return (
     <Button
       className="button button--round button--brown pop"
-      content="Log In"
+      content="Sign In / Sign Up"
       onClick={handleLogin}
     />
   );

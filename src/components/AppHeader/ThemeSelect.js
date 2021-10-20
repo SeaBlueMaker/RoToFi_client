@@ -13,6 +13,17 @@ export default function ThemeSelect() {
   };
 
   useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    const initialTheme = "theme--morning";
+
+    if (!theme) {
+      localStorage.setItem("theme", initialTheme);
+      setSelected(initialTheme);
+      document.body.className = initialTheme;
+    }
+  }, []);
+
+  useEffect(() => {
     const theme = localStorage.getItem("theme") || themes[0];
 
     setSelected(theme);
@@ -26,7 +37,6 @@ export default function ThemeSelect() {
       onChange={handleChangeSelect}
       value={selected}
     >
-      <option value="default" disabled>Theme</option>
       {themes.map((theme) => (
         <option
           value={`theme--${theme}`}
