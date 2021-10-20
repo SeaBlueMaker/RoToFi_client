@@ -6,10 +6,11 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { TimeLine } from "./TimeLine";
 
 import PlotEditor from "./PlotEditor/PlotEditor";
+import ScenarioPageManual from "./SenarioPageManual";
 
 import "./style.scss";
 
-export default function ScenarioPage() {
+export default function ScenarioPage({ isManualOpened }) {
   const { plots } = useSelector(state => state.plots);
 
   const [ plotList, setPlotList ] = useState(plots);
@@ -26,6 +27,7 @@ export default function ScenarioPage() {
   return (
     <>
       <div className="scenario-page">
+        {isManualOpened && <ScenarioPageManual />}
         <div className="timeline">
           <DndProvider backend={HTML5Backend}>
             <TimeLine selectedPlot={selectedPlot} handleSelectedPlot={setSelectedPlot} />

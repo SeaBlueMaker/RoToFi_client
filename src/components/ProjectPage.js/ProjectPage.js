@@ -12,16 +12,22 @@ import { loadProject } from "../../modules/project";
 import { insertPlot } from "../../modules/plots";
 
 import "./style.scss";
+import Button from "../Button";
 
 export default function ProjectPage() {
   const [ project, setProject ] = useState(null);
   const [ activeIndex, setActiveIndex ] = useState(0);
+  const [ isManualOpened, setIsManualOpened ] = useState(false);
 
   const { id } = useParams();
   const dispatch = useDispatch();
 
   const handleTabClick = (index) => {
     setActiveIndex(index);
+  };
+
+  const handleManualOpen = () => {
+    setIsManualOpened(!isManualOpened);
   };
 
   useEffect(() => {
@@ -58,11 +64,11 @@ export default function ProjectPage() {
   const tabContents = [
     {
       tabName: "등장인물",
-      tabComponent: <CharactersPage />,
+      tabComponent: <CharactersPage isManualOpened={isManualOpened} />,
     },
     {
       tabName: "시나리오",
-      tabComponent: <ScenarioPage />,
+      tabComponent: <ScenarioPage isManualOpened={isManualOpened} />,
     }
   ];
 
@@ -89,6 +95,11 @@ export default function ProjectPage() {
       <div className="nav__background-wrap">
         <ul className="nav__background">
           {tabs.map((tab) => tab.tabTitle)}
+          <Button
+            className="button button--round button--purple"
+            content="Manual"
+            onClick={handleManualOpen}
+          />
         </ul>
       </div>
       <div className="nav__content-wrap">

@@ -1,3 +1,85 @@
+.manual {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  color: #FFFFFF;
+  z-index: 20;
+
+  .list {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-basis: 150px;
+    min-width: 80px;
+    padding: 40px;
+    margin-right: 10px;
+    border: 2px solid #FFFFFF;
+    text-align: center;
+
+    .description {
+      margin: 50px 0;
+      word-break: keep-all;
+    }
+  }
+
+  .info {
+    flex-basis: 500px;
+    flex-grow: 1;
+    padding: 50px;
+    border: 2px solid #FFFFFF;
+
+    .description {
+      margin: 50px 0;
+    }
+  }
+
+  &__timeline {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-basis: 500px;
+    min-width: 500px;
+    padding: 30px;
+    margin-right: 10px;
+    border: 2px solid #FFFFFF;
+    text-align: center;
+
+    .description {
+      margin: 50px 0;
+      word-break: keep-all;
+    }
+
+    .description--column {
+      display: flex;
+      margin: 10px 5px;
+      word-break: keep-all;
+    }
+  }
+
+  &__editor {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 430px;
+    padding: 20px 40px 40px 40px;
+    border: 2px solid #FFFFFF;
+    text-align: center;
+
+    .description {
+      width: 100%;
+      margin: 50px 0;
+      word-break: keep-all;
+    }
+
+    .description--column {
+      display: flex;
+      margin: 10px 5px;
+      word-break: keep-all;
+    }
+  }
+}
+
 .tab {
   display: flex;
   flex-direction: column;
@@ -38,6 +120,7 @@
 }
 
 .character-page {
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: row;

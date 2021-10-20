@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import Button from "../../Button";
 
 import CharacterList from "./CharacterList";
+import CharactersPageManual from "./CharactersPageManual";
 import Information from "./Information";
 import NewCharacter from "./NewCharacter";
 
-export default function CharactersPage() {
+export default function CharactersPage({ isManualOpened }) {
   const characters = useSelector(state => state.characters);
 
   const [ isAddible, setIsAddible ] = useState(false);
@@ -25,6 +26,7 @@ export default function CharactersPage() {
 
   return (
     <div className="character-page">
+      {isManualOpened && <CharactersPageManual />}
       <div className="character-page__list-wrap">
         {characters && <CharacterList characterList={characters} handleOnClick={setShowingCharacter} />}
         <Button
