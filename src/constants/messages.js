@@ -18,6 +18,9 @@ const CONFIRM_DELETE_CARD = "카드를 삭제하시겠습니까?";
 const CREATE_NEW_CARD = "새 카드를 만든 후 다시 시도해주십시오.";
 const REFRESH = "새로고침이 필요합니다.";
 const SELECT_CHARACTER = "인물명을 선택해주세요.";
+const SERVER_PROBLEM = "서버상의 문제로 요청을 처리하지 못했습니다. 다시 시도해 주십시오.";
+const WELCOME_REGISTER = "환영합니다! 회원등록이 완료되었으니 로그인 후 이용해주십시오.";
+
 const OK = "ok";
 
 export {
@@ -41,5 +44,7 @@ export {
   CREATE_NEW_CARD,
   REFRESH,
   SELECT_CHARACTER,
+  SERVER_PROBLEM,
+  WELCOME_REGISTER,
   OK,
 };

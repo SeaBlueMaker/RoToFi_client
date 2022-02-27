@@ -8,7 +8,11 @@ import {
   registerUser,
 } from "../../api/service";
 
-import { OK } from "../../constants/messages";
+import {
+  SERVER_PROBLEM,
+  WELCOME_REGISTER,
+  OK,
+} from "../../constants/messages";
 
 import Button from "../Button";
 
@@ -20,22 +24,30 @@ export default function LoginButton({ handleLoginStatus }) {
   useEffect(() => {
     async function fetchData() {
       const response = await checkMember(idToken);
-      const { userId } = response;
+      const { userId, result } = response;
 
       if (userId) {
         localStorage.setItem("userId", userId);
 
         handleLoginStatus(true);
-      } else {
+
+        return;
+      }
+
+      if (result === OK) {
         const idToken = await firebaseAPI.getToken();
         const resource = { idToken };
 
         const { result } = await registerUser(idToken, resource);
 
         if (result === OK) {
-          alert("환영합니다! 회원등록이 완료되었으니 로그인 후 이용해주십시오.");
+          alert(WELCOME_REGISTER);
         }
+
+        return;
       }
+
+      alert(SERVER_PROBLEM);
     }
 
     if (idToken) {
