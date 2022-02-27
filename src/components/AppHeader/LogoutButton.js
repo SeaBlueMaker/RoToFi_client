@@ -15,7 +15,7 @@ export default function LogoutButton({ handleLoginStatus }) {
     if (result === OK) {
       await firebaseAPI.logout();
 
-      localStorage.removeItem("userId");
+      window.sessionStorage.removeItem("userId");
 
       handleLoginStatus(false);
 

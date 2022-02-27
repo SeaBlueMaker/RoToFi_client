@@ -18,7 +18,7 @@ export default function NewProjectPage() {
 
   const history = useHistory();
 
-  const userId = localStorage.getItem("userId");
+  const userId = window.sessionStorage.getItem("userId");
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);

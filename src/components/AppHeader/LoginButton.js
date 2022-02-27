@@ -27,7 +27,7 @@ export default function LoginButton({ handleLoginStatus }) {
       const { userId, result } = response;
 
       if (userId) {
-        localStorage.setItem("userId", userId);
+        window.sessionStorage.setItem("userId", userId);
 
         handleLoginStatus(true);
 

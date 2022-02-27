@@ -5,7 +5,7 @@ import LogoutButton from "./LogoutButton";
 import ThemeSelect from "./ThemeSelect";
 
 export default function UserMenu() {
-  const hasUserId = !!localStorage.getItem("userId");
+  const hasUserId = !!window.sessionStorage.getItem("userId");
 
   const [ isLogin, setLoginStatus ] = useState(hasUserId);
 
