@@ -40,8 +40,10 @@ export default function NewCharacter({ handleFinishAdd }) {
       if (response.result !== OK) {
         alert(FAILED_BASIC);
 
-        return response.createdCharacter;
+        return;
       }
+
+      return response.createdCharacter;
     } catch (error) {
       alert(error.message);
 
